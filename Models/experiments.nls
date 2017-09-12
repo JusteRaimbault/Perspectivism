@@ -1,0 +1,41 @@
+
+;;
+; experiments
+
+to setup-experiment [nw-mode nw-correlation sigma alpha-pref beta tf seed]
+  
+  set headless? true
+  
+  if floor nw-mode = 0 [set social-network "random"] if floor nw-mode = 1 [set social-network "small-world"]
+
+  set social-interdisc-correlation nw-correlation
+  set sigma-discipline sigma
+  set interdisc-preference-hierarchy alpha-pref
+  set beta-dc beta
+  
+  set total-time-steps tf
+  
+  random-seed seed
+  
+  setup:setup-headless
+  
+  setup:setup
+  
+end
+
+
+
+to run-experiment
+  repeat total-time-steps [
+    main:go 
+  ]
+end
+
+
+to test-experiment
+  ca
+  setup-experiment 1 0.8 0.1 1 1 2000 random 10000
+  run-experiment
+  show indicators:smoothed-interdisciplinarity
+  show indicators:smoothed-depth
+end

@@ -1,0 +1,38 @@
+
+;;
+; projects
+
+
+
+
+;;
+;
+to-report project:project-interdisciplinarity
+  let i 0 let res 0
+  ;show [discipline-distribution] of item 0 members
+  ;show [discipline-distribution] of item 1 members
+  repeat discipline-bins [
+    ;show max (map [item i [discipline-distribution] of ?] members)
+    set res res + max (map [item i [discipline-distribution] of ?] members)
+    set i i + 1
+  ]
+  report res
+end
+
+
+;;
+;
+to-report project:project-depth
+  let i 0 let res 0
+  repeat discipline-bins [
+    let current-disc (map [item i [discipline-distribution] of ?] members) let cres 1 foreach current-disc [set cres cres * ?]
+    set res res + cres set i i + 1
+  ]
+  report res
+end
+
+
+to project:new-project
+  set hidden? true
+  set duration random 10 + 20 set remaining-time duration
+end

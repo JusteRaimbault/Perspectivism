@@ -5,8 +5,11 @@ __includes[
   "main.nls"
 
   "scientist.nls"
+  "project.nls"
 
   "indicators.nls"
+
+  "experiments.nls"
 
   "utils/List.nls"
 ]
@@ -15,12 +18,19 @@ __includes[
 globals [
 
   #-scientists
+  average-link-number
 
   discipline-bins
 
 
+  ; indicators
+  historical-interdisciplinarity
+  historical-depth
+
   ; headless
   headless?
+
+  total-time-steps
 
 ]
 
@@ -39,21 +49,39 @@ scientists-own [
 
   ;;
   ; daily timetable
+  ;  list of projects scheduled in the coming days (free if empty)
   daily-timetable
 
+
+  ;;
+  ; personnal affinity with interdisciplinary work
+  interdisc-preference
+
+
+  link-proba
 
 ]
 
 
 projects-own [
 
+  ;; scientists responsible for the project
+  leaders
+
+  ;; members
+  members
+
+  ;; duration, in days
+  duration
+
+  remaining-time
 
 ]
 @#$#@#$#@
 GRAPHICS-WINDOW
-210
+233
 10
-649
+672
 470
 16
 16
@@ -78,12 +106,12 @@ ticks
 30.0
 
 BUTTON
-35
-48
-101
-81
-NIL
+31
+123
+97
+156
 setup
+setup:setup
 NIL
 1
 T
@@ -95,16 +123,175 @@ NIL
 1
 
 SLIDER
-13
-125
-185
-158
+2
+243
+209
+276
 sigma-discipline
 sigma-discipline
 0
 0.3
 0.1
 0.01
+1
+NIL
+HORIZONTAL
+
+BUTTON
+107
+123
+172
+156
+go
+main:go
+T
+1
+T
+OBSERVER
+NIL
+NIL
+NIL
+NIL
+1
+
+PLOT
+689
+93
+849
+213
+interdisciplinarity
+NIL
+NIL
+0.0
+10.0
+0.0
+1.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot indicators:interdisciplinarity"
+
+CHOOSER
+16
+10
+154
+55
+social-network
+social-network
+"random" "small-world"
+1
+
+MONITOR
+688
+10
+760
+55
+scientists
+count scientists
+17
+1
+11
+
+MONITOR
+767
+10
+824
+55
+links
+count links
+17
+1
+11
+
+PLOT
+853
+93
+1013
+213
+depth
+NIL
+NIL
+0.0
+10.0
+0.0
+0.01
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot indicators:depth"
+
+SLIDER
+2
+281
+208
+314
+interdisc-preference-hierarchy
+interdisc-preference-hierarchy
+0
+2
+1
+0.1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+3
+317
+208
+350
+beta-dc
+beta-dc
+0
+1
+1
+0.1
+1
+NIL
+HORIZONTAL
+
+MONITOR
+830
+10
+894
+55
+projects
+count projects
+17
+1
+11
+
+PLOT
+1016
+92
+1176
+212
+projects
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot count projects"
+
+SLIDER
+9
+66
+210
+99
+social-interdisc-correlation
+social-interdisc-correlation
+0
+1
+0.8
+0.1
 1
 NIL
 HORIZONTAL
