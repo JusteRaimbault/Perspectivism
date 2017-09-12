@@ -1,0 +1,42 @@
+
+;;
+; setup
+
+
+to setup
+  
+  if not headless? [ca]
+  
+  setup-globals
+  
+  setup-scientists
+  
+  setup-social-network
+  
+end
+
+
+to setup-globals
+  
+  set #-scientists 100
+  
+  set discipline-bins 100
+
+  
+end
+
+
+
+to setup-scientists
+  
+  create-scientists #-scientists [
+    setxy random-xcor random-ycor set shape "person"
+    set discipline-distribution initial-discipline-distribution  
+  ]
+
+end
+
+
+to setup-social-network
+  
+end

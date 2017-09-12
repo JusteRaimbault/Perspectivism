@@ -1,0 +1,13 @@
+
+;;
+; indicators
+
+
+;;
+; global interdisc is the average overlap accross projects
+to-report interdisciplinarity
+  
+end
+
+
+
