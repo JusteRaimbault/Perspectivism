@@ -7,11 +7,11 @@ X Chapter 2 Juste Raimbault: Relating complexities for the reflexive study of co
 
 II Scaling laws: universal solutions for urban planning or contingent products of circumstances?
 
-Chapter 3 Elsa Arcaute and Erez Hatna: Scaling laws: insights and limitations
+X Chapter 3 Elsa Arcaute and Erez Hatna: Scaling laws: insights and limitations
 
 X Chapter 4 Olivier Finance and Elfie Swerts: Scaling laws in urban geography. Linkages with urban theories, challenges and limitations
 
-Chapter 5 Horacio Samaniego: The Topology of Communicating across cities in increasing sizes, or the complex task of “Reaching Out” in Larger Cities 
+X Chapter 5 Horacio Samaniego: The Topology of Communicating across cities in increasing sizes, or the complex task of “Reaching Out” in Larger Cities 
  
 
 III Economy versus geography: theories of urbanization and cities development
@@ -24,7 +24,7 @@ X Chapter 8 Lena Sanders, Céline Vacchiani-Marcuzzo and Isabelle Thomas : On th
 
 IV Urban theories and international comparisons
 
-Chapter 9 Fulong Wu: Emerging cities and urban theories: a Chinese perspective
+X Chapter 9 Fulong Wu: Emerging cities and urban theories: a Chinese perspective
 
 Chapter 10 Natacha Aveline : China’s Housing Booms: a Challenge to Bubble Theory
 
