@@ -1280,3 +1280,162 @@ connect@src/mongo/shell/mongo.js:343:13
 1561593601;171173;258391;36293
 1561593828;171173;258391;36293
 1561593892;171208;258391;36333
+1561595402;171209;258394;36333
+1561597201;171215;258416;36343
+1561599001;172832;260632;38139
+1561600802;173093;261013;38444
+1561602601;173093;261013;38444
+1561604401;173100;261022;38451
+1561606201;173337;261308;38706
+1561608002;174256;262605;39780
+1561609801;174329;262698;39867
+1561611601;174344;262779;39889
+1561613401;175119;264209;40795
+1561615202;175243;264342;40922
+1561617002;175243;264342;40922
+1561618801;175243;264342;40922
+1561620602;175349;264597;41065
+1561622401;175386;264640;41103
+1561622452;175386;264640;41103
+1561624202;175386;264640;41103
+1561626001;175386;264640;41103
+1561627801;175515;264779;41233
+1561629602;175515;264779;41233
+1561631402;175515;264779;41233
+1561632479;175515;264779;41233
+1561633201;175515;264779;41233
+1561635001;175515;264779;41233
+1561636802;175521;264787;41238
+1561638602;175521;264787;41238
+1561640402;175521;264787;41238
+1561642201;175809;265272;41576
+1561644002;175809;265272;41576
+1561645801;175809;265272;41576
+1561647601;175809;265272;41576
+1561649402;175809;265272;41576
+1561651201;175809;265272;41576
+1561653001;175809;265272;41576
+1561653908;175817;265287;41575
+1561654801;175817;265287;41575
+1561656601;176150;265733;41557
+1561658402;176324;266022;41532
+1561660138;176324;266022;41532
+1561660201;176324;266022;41532
+1561662002;176446;266186;41519
+1561663801;176682;266527;41482
+1561665602;176687;266540;41480
+1561667401;176687;266540;41480
+1561669201;176687;266540;41480
+1561671002;177033;266946;41475
+1561672801;177033;266946;41475
+1561674602;177140;267107;41461
+1561676401;2019-06-27T23:00:01.107+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-27T23:00:01.180+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-27T23:00:01.245+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561678201;2019-06-27T23:30:01.347+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-27T23:30:01.434+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-27T23:30:01.505+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561680002;2019-06-28T00:00:01.645+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;267174;41457
+1561681802;177197;267214;41456
+1561683601;177204;267221;41455
+1561685402;177561;267919;41415
+1561687201;177652;268056;41412
+1561689002;2019-06-28T02:30:01.985+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T02:30:02.073+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T02:30:02.133+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561690801;2019-06-28T03:00:01.227+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T03:00:01.290+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T03:00:01.351+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561692602;2019-06-28T03:30:01.449+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T03:30:01.541+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T03:30:01.604+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561694402;2019-06-28T04:00:01.781+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;268056;41412
+1561696202;177652;268056;41412
+1561698002;177652;268056;41412
+1561699802;177742;268157;41409
+1561701601;177821;268259;41402
+1561703402;177821;268259;41402
+1561705201;2019-06-28T07:00:01.268+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T07:00:01.330+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T07:00:01.391+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561707001;178009;268534;41401
+1561708541;178009;268534;41401
+1561708802;178009;268534;41401
+1561710602;178009;268534;41401
+1561712402;178009;268534;41401
+1561714202;2019-06-28T09:30:01.929+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T09:30:01.996+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T09:30:02.055+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561716001;2019-06-28T10:00:01.142+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T10:00:01.213+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T10:00:01.274+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561717801;2019-06-28T10:30:01.377+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T10:30:01.441+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T10:30:01.502+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561719601;2019-06-28T11:00:01.596+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T11:00:01.660+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T11:00:01.726+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561721401;2019-06-28T11:30:01.853+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T11:30:01.920+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;2019-06-28T11:30:01.986+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6
+1561723202;2019-06-28T12:00:02.102+0000 E QUERY    [js] Error: network error while attempting to run command 'isMaster' on host '127.0.0.1:27017'  :
+connect@src/mongo/shell/mongo.js:343:13
+@(connect):3:6;268534;41401
+1561725001;178009;268534;41401
+1561726801;178009;268534;41401
+1561728601;178119;268800;41385
+1561730402;178409;269262;41357
+1561732146;178423;269278;41354
+1561732201;178423;269278;41354
+1561732769;178423;269278;41354
+1561734002;178423;269278;41354
+1561735801;178423;269278;41354
+1561737022;178423;269278;41354
