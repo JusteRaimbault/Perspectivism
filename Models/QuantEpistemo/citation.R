@@ -53,6 +53,8 @@ export_gml(citationcorehigher,'processed/core.gml')
 save(citationcorehigher,file='processed/core.RData')
 save(citation,file='processed/full.RData')
 
+load('processed/core.RData')
+
 #######
 ## modularity / communities
 
@@ -176,8 +178,11 @@ for(i in 1:length(largestcoms)){
 # Language statistics
 # (full netrwork)
 
-# TODO
-
+langtab = table(V(citation)$lang)
+langtab = langtab/sum(langtab)
+100*langtab[langtab>0.01]
+#  Chinese    English     French     German Portuguese    Spanish 
+# 4.178408  80.865864   2.032443   2.276329   2.022842   2.381766 
 
 #######
 # Composition of chapters in terms of communities / overlaps
@@ -188,6 +193,17 @@ resdir = paste0(Sys.getenv('CS_HOME'),'/Perspectivism/Results/QuantEpistemo/Anal
 
 chapters = c("ecogeo","southafrica","butterflies","topology","scalingurban","scalinglaws",
 "econophysics","cage","simpopnet","china","complexities","bubble","definingcomplexity","urbansprawl")
+
+chapternames = list("ecogeo"="14-ecogeo","southafrica"="11-southafrica","butterflies"="8-butterflies",
+                    "topology"="5-topology","scalingurban"="4-scalingurban",
+                    "scalinglaws"="3-scalinglaws",
+                    "econophysics"="6-econophysics","cage"="7-cage",
+                    "simpopnet"="13-simpopnet","china"="9-china",
+                    "complexities"="2-complexities","bubble"="10-bubble"
+                    ,"definingcomplexity"="1-definingcomplexity","urbansprawl"="12-urbansprawl")
+sortedchapters = c("1-definingcomplexity","2-complexities","3-scalinglaws","4-scalingurban","5-topology",
+                   "6-econophysics","7-cage","8-butterflies","9-china","10-bubble","11-southafrica",
+                   "12-urbansprawl","13-simpopnet","14-ecogeo")
 
 # 1) is there a significant unbalance in coverage ?
 
@@ -201,6 +217,7 @@ length(which(V(cit)$depth==2))
 # layer filling
 100*length(which(V(cit)$depth=='2'&degree(cit,mode = 'in')>0)) / length(which(V(cit)$depth==2))
 100*length(which(V(cit)$depth=='1'&degree(cit,mode = 'in')>0)) / length(which(V(cit)$depth==1))
+100*length(which(V(cit)$depth<2&degree(cit,mode = 'in')>0)) / length(which(V(cit)$depth<2))
 # citation : 96.16368 ; 33.83287
 # citationcorehigher : 96.11399 ; 44.21122
 
@@ -241,21 +258,39 @@ for(ch1 in 1:length(chapters)){
     overlaps[ch1,ch2] = length(which(ch1nodes&ch2nodes))
   }
 }
-rownames(overlaps)<-chapters;colnames(overlaps)<-chapters
-rownames(reloverlaps)<-chapters;colnames(reloverlaps)<-chapters
+#rownames(overlaps)<-chapters;colnames(overlaps)<-chapters
+#rownames(reloverlaps)<-chapters;colnames(reloverlaps)<-chapters
+rownames(overlaps)<-unlist(chapternames[chapters]);colnames(overlaps)<-unlist(chapternames[chapters])
+rownames(reloverlaps)<-unlist(chapternames[chapters]);colnames(reloverlaps)<-unlist(chapternames[chapters])
 
 # heatmaps
-g=ggplot(data=melt(overlaps[,rev(chapters)]),aes(x=Var1,y=Var2,fill=value))
+g=ggplot(data=melt(overlaps[sortedchapters,rev(sortedchapters)]),aes(x=Var1,y=Var2,fill=value))
 g+geom_raster()+xlab("")+ylab("")+scale_fill_continuous(name="Absolute\nOverlap")+
   theme(axis.text.x = element_text(angle = 90,hjust=1))+stdtheme
-ggsave(file=paste0(resdir,'chapters_overlaps.png'),width=30,height=28,units='cm')
+ggsave(file=paste0(resdir,'chapters_overlaps_nums.png'),width=30,height=28,units='cm')
 
 
-g=ggplot(data=melt(reloverlaps[,rev(chapters)]),aes(x=Var1,y=Var2,fill=value))
+g=ggplot(data=melt(reloverlaps[sortedchapters,rev(sortedchapters)]),aes(x=Var1,y=Var2,fill=value))
 g+geom_raster()+xlab("")+ylab("")+scale_fill_continuous(name="Relative\nOverlap")+
   theme(axis.text.x = element_text(angle = 90,hjust=1))+stdtheme
-ggsave(file=paste0(resdir,'chapters_reloverlaps.png'),width=30,height=28,units='cm')
+ggsave(file=paste0(resdir,'chapters_reloverlaps_nums.png'),width=30,height=28,units='cm')
 
+
+# diag(overlaps)
+#ecogeo        southafrica        butterflies           topology       scalingurban        scalinglaws 
+#135588             139393             126024             113672             136791             134472 
+#econophysics               cage          simpopnet              china       complexities             bubble 
+#119367             115367             113510             118607             133601             113303 
+#definingcomplexity        urbansprawl 
+#134531             113269 
+
+# summary(diag(overlaps)/vcount(cit))
+#Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#0.7095  0.7147  0.7685  0.7819  0.8426  0.8731 
+
+
+interov = overlaps;diag(interov)<- 0
+summary(c(interov))
 
 ###
 # 3) coverage / composition (give absolute coverage ?)
@@ -275,21 +310,49 @@ for(chapter in 1:length(chapters)){
     probasd1[chapter,k] = length(which(com$membership==comnums[k]&!is.na(get.vertex.attribute(cit,chapters[chapter]))&as.numeric(V(cit)$depth)>=1))/length(which(!is.na(get.vertex.attribute(cit,chapters[chapter]))&as.numeric(V(cit)$depth)>=1))
   }
 }
-rownames(probasall)<-chapters;colnames(probasall)<-citcomnames[as.character(comnums)]
-rownames(probasd1)<-chapters;colnames(probasd1)<-citcomnames[as.character(comnums)]
+rownames(probasall)<-unlist(chapternames[chapters]);colnames(probasall)<-citcomnames[as.character(comnums)]
+rownames(probasd1)<-unlist(chapternames[chapters]);colnames(probasd1)<-citcomnames[as.character(comnums)]
+probasall<-probasall[rev(sortedchapters),]
+probasd1<-probasd1[rev(sortedchapters),]
 
-probasall[,colMeans(probasall)>0.01]
-probasd1[,colMeans(probasd1)>0.01]
+#probasall[,colMeans(probasall)>0.01]
+#probasd1[,colMeans(probasd1)>0.01]
 
 # plot with signif communities
 #signifcoms = 
 
-g=ggplot(data=melt(probasall),aes(x=Var2,y=Var1,fill=value))
-g+geom_raster()+xlab("")+ylab("")
+g=ggplot(data=melt(probasall[,colMeans(probasall)>0.01]),aes(x=Var2,y=Var1,fill=value))
+g+geom_raster()+xlab("")+ylab("")+xlab("")+ylab("")+scale_fill_continuous(name="Composition\n(all)")+
+  theme(axis.text.x = element_text(angle = 90,hjust=1))+stdtheme
+ggsave(file=paste0(resdir,'chapters_composition_all_nums.png'),width=30,height=28,units='cm')
 # plot deviations ? (seem rather similar with all ?)
 
-g=ggplot(data=melt(probasd1),aes(x=Var2,y=Var1,fill=value))
-g+geom_raster()+xlab("")+ylab("")
+g=ggplot(data=melt(probasd1[,colMeans(probasd1)>0.01]),aes(x=Var2,y=Var1,fill=value))
+g+geom_raster()+xlab("")+ylab("")+scale_fill_continuous(name="Composition\n(depth 1)")+
+  theme(axis.text.x = element_text(angle = 90,hjust=1))+stdtheme
+ggsave(file=paste0(resdir,'chapters_composition_d1_nums.png'),width=30,height=28,units='cm')
+
+
+
+probasallnorm = apply(probasall[,colMeans(probasall)>0.01],2,function(x){(x-mean(x))/sd(x)})
+g=ggplot(data=melt(probasallnorm),aes(x=Var2,y=Var1,fill=value))
+g+geom_raster()+xlab("")+ylab("")+xlab("")+ylab("")+scale_fill_continuous(name="Normalized\ncomposition\n(all)")+
+  theme(axis.text.x = element_text(angle = 90,hjust=1))+stdtheme
+ggsave(file=paste0(resdir,'chapters_composition_normalized_all_nums.png'),width=30,height=28,units='cm')
+
+probasd1norm = apply(probasd1[,colMeans(probasd1)>0.01],2,function(x){(x-mean(x))/sd(x)})
+g=ggplot(data=melt(probasd1norm),aes(x=Var2,y=Var1,fill=value))
+g+geom_raster()+xlab("")+ylab("")+xlab("")+ylab("")+scale_fill_continuous(name="Normalized\ncomposition\n(depth 1)")+
+  theme(axis.text.x = element_text(angle = 90,hjust=1))+stdtheme
+ggsave(file=paste0(resdir,'chapters_composition_normalized_d1_nums.png'),width=30,height=28,units='cm')
+
+
+####
+
+# Herfindhal index (not rao stirling !) - let keep simple
+summary(apply(probasd1,1,function(r){1-sum(r^2)}))
+
+
 
 
 
