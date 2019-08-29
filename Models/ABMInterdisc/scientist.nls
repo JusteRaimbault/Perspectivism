@@ -1,0 +1,77 @@
+
+;;
+; 
+
+
+
+to scientist:start-new-project
+  
+  let potential-partners link-neighbors
+  
+  ; choose among potential partners in a discrete choice manner
+  if potential-partners != nobody and count potential-partners > 0 [
+    let lpartners to-list potential-partners let utilities [] foreach lpartners [set utilities lput (scientist:project-utility ?) utilities]
+    let l map [exp (beta-dc * ?)] utilities let probas map [? / sum l] l
+    let r random-float 1 let found? false let s 0 let i 0 let partner one-of lpartners foreach probas [set s s + ? if not found? and s > r [set found? true set partner item i lpartners] set i i + 1]
+    
+    ; create the project
+    let current-project nobody
+    hatch-projects 1 [
+      project:new-project
+      set members (list myself partner) set leaders (list myself)
+      set current-project self
+    ]
+    
+    repeat [remaining-time] of current-project [set daily-timetable lput current-project daily-timetable]
+    ask partner [repeat [remaining-time] of current-project [set daily-timetable lput current-project daily-timetable]]
+    
+  ]
+  
+end
+
+
+
+;;
+;
+to-report scientist:project-utility [partner]
+  let ov scientist:disc-overlap self partner
+  report ov * interdisc-preference - (scientist:collaboration-cost ov)
+end
+
+;;
+; 
+to-report scientist:collaboration-cost [overlap]
+  ; introduce quadratic costs
+  report overlap
+end
+
+
+to-report scientist:disc-overlap [s1 s2]
+  let res 0
+  let i 0 foreach [discipline-distribution] of s1 [
+    set res res + ? * item i [discipline-distribution] of s2
+    set i i + 1 
+  ]
+  report res
+end
+
+
+
+
+to-report scientist:initial-discipline-distribution
+
+  let disc-mean random-float 1
+  
+  let res seq 0 (discipline-bins - 1) 1
+  set res map [exp (- ((((? / discipline-bins)- disc-mean)^ 2 /(2 * sigma-discipline ^ 2))))] res
+  set res map [? / sum res] res
+  report res
+  
+end
+
+to scientist:new-scientist
+  setxy random-xcor random-ycor set shape "person"
+  set discipline-distribution scientist:initial-discipline-distribution  
+  set daily-timetable []
+  set interdisc-preference 1 / ((who + 1)^ interdisc-preference-hierarchy)
+end

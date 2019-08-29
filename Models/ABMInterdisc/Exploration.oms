@@ -1,0 +1,67 @@
+import java.text.SimpleDateFormat
+import java.util.Date
+
+logger.level("FINE")
+
+// Parameters
+val nwMode = Val[Double]
+val nwCorrelation = Val[Double]
+val sigmaDiscipline = Val[Double]
+val alphaPreference = Val[Double]
+val betaDC = Val[Double]
+
+val id = Val[Int]
+val replication = Val[Int]
+
+// Indicators
+val interdisciplinarity = Val[Double]
+val depth = Val[Double]
+val nwEffectiveCorr = Val[Double]
+val maxDegree = Val[Double]
+
+
+
+// setup-experiment [nw-mode nw-correlation sigma alpha-pref beta tf seed]
+val cmds = List("setup-experiment ${nwMode} ${nwCorrelation} ${sigmaDiscipline} ${alphaPreference} ${betaDC} 2000 ${replication}","run-experiment")
+
+val model = NetLogo5Task(workDirectory / "HEADLESS_Perspectivism.nlogo",cmds,embedWorkspace = true) set (
+  inputs += (nwMode,nwCorrelation,sigmaDiscipline,alphaPreference,betaDC,replication,id),
+  outputs += (nwMode,nwCorrelation,sigmaDiscipline,alphaPreference,betaDC,replication,id),
+  netLogoOutputs += ("indicators:smoothed-interdisciplinarity", interdisciplinarity),
+  netLogoOutputs += ("indicators:smoothed-depth", depth),
+  netLogoOutputs += ("indicators:social-degree-correlation", nwEffectiveCorr),
+  netLogoOutputs += ("indicators:max-degree", maxDegree)
+)
+
+
+// exploration
+val exploration = ExplorationTask (
+  /*(LHS(1,
+    nwMode in Range(0.0,1.0),
+    nwCorrelation in Range(0.0,1.0),
+    sigmaDiscipline in Range(0.05,0.3),
+    alphaPreference in Range(0.5,2.0),
+    betaDC in Range(0.0,5.0)
+  ) withIndex id)*/
+  (((nwMode in (0.0 to 1.0 by 1.0)) x
+    (nwCorrelation in (0.0 to 1.0 by 0.2)) x
+    (sigmaDiscipline in (0.05 to 0.3 by 0.05)) x
+    (alphaPreference in (0.5 to 2.0 by 0.5)) x
+    (betaDC in (0.0 to 5.0 by 0.5))
+  ) withIndex id)
+  x (replication in (UniformDistribution[Int]() take 50))
+)
+
+
+val purpose = "GRID"
+//val purpose = "TEST"
+
+// output hook
+val indicshook = AppendToCSVFileHook(workDirectory / "exploration" / ((new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")).format(new Date()))+"_"+purpose+".csv")
+
+// env
+//val local = LocalEnvironment(1)
+val grid = EGIEnvironment("vo.complex-systems.eu")
+
+//exploration -< (model on local hook indicshook)
+exploration -< (model on grid by 100 hook indicshook)

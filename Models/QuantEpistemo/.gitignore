@@ -1,0 +1,8 @@
+launchdb
+.tor_tmp
+
+test.csv
+test_links.csv
+
+__pycache__
+
