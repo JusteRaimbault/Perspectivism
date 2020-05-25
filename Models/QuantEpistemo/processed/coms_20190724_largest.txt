@@ -1,0 +1,192 @@
+"regional science ; 0.180039837642814"
+                                                                                                         titles
+4791630039065610518            One size fits all?: Towards a differentiated regional innovation policy approach
+8225298525766582140                     Towards a knowledge\342\200\220based theory of the geographical cluster
+13909057361648772149                 Regional innovation systems: the role of governances in a globalized world
+15335185379906862092                 Knowledge bases and regional innovation systems: Comparing Nordic clusters
+7086787680145296542                                 Deconstructing clusters: chaotic concept or policy panacea?
+16384014326091099523      The cultural economy of cities: essays on the geography of image-producing industries
+12024993674344358955                                  The associational economy: firms, regions, and innovation
+7138031596242410677         Location, competition, and economic development: Local clusters in a global economy
+2350903049579959305  Clusters and knowledge: local buzz, global pipelines and the process of knowledge creation
+                     degree
+4791630039065610518     901
+8225298525766582140     836
+13909057361648772149    771
+15335185379906862092    854
+7086787680145296542     925
+16384014326091099523    754
+12024993674344358955    935
+7138031596242410677     990
+2350903049579959305    1000
+[1] "mixed ; 0.124824614151132"
+                                                                                                                 titles
+3721367010381806798                                                                           Cities and climate change
+11433377535323409332                 Urban policy mobilities and global circuits of knowledge: Toward a research agenda
+6069768789846265736   Splintering urbanism: networked infrastructures, technological mobilities and the urban condition
+590642737589040248                                                Urban informality: toward an epistemology of planning
+10646632526787126952                                         Social power and the urbanization of water: flows of power
+5813750197845728778                                                         World city network: a global urban analysis
+1688474123460397654                Urban complexity and spatial strategies: Towards a relational planning for our times
+14277738479043148793                                             The 21st-century metropolis: new geographies of theory
+16109084315140887089                                                 Ordinary cities: between modernity and development
+                     degree
+3721367010381806798     541
+11433377535323409332    538
+6069768789846265736    1000
+590642737589040248      577
+10646632526787126952    557
+5813750197845728778     773
+1688474123460397654     737
+14277738479043148793    623
+16109084315140887089    818
+[1] "economic geography ; 0.123302515534175"
+                                                                              titles degree
+2469647782694819285                            Zipf's law for cities: an explanation    957
+9934080346828509979                                    The sizes and types of cities    831
+9149390381318862741                                       Marshall's scale economies    802
+15036576187576291249              Micro-foundations of urban agglomeration economies    908
+17856187391640350134   Evidence on the nature and sources of agglomeration economies    915
+7549250524678280857                      Die r\303\244umliche ordnung der wirtschaft    929
+11989067378723611199                       Increasing returns and economic geography    914
+4966090460459092423                        Increasing returns and economic geography    917
+17326276765383385041 Related variety, unrelated variety and regional economic growth    827
+[1] "health ; 0.115360042092604"
+                                                                                                   titles degree
+6276147815958634574             Geography Of Nowhere: The Rise And Declineof America'S Man-Made Landscape    569
+2326394414467466038  Neighborhood-based differences in physical activity: an environment scale evaluation    534
+1168097485053302327                                            Life between buildings: using public space    722
+7796593555459073876                                                                          Public space    567
+9523166524674690309       Gasoline consumption and cities: a comparison of US cities with a global survey    604
+17432355468488780935                                                                    Cities for people    626
+9103241408869786786                      Built environments and mode choice: toward a normative framework    540
+12927982106716823703            Suburban nation: The rise of sprawl and the decline of the American dream    710
+8195050481828346524        How the built environment affects physical activity: views from urban planning    666
+[1] "complexity ; 0.0893966726798958"
+                                                                                                                                              titles
+10912890065512100472                                                                                                  Self-organization and the city
+1244859279975364799                                                                        Geosimulation: Automata-based modeling of urban phenomena
+10961332031865325758                                   UrbanSim: Modeling urban development for land use, transportation, and environmental planning
+4717128992502310138                                                                                                        The new science of cities
+2520217403374467394                             Cities and Complexity: Understanding Cities with Cellular Automata, Agent-Based Models, and Fractals
+11251159894538010831                                                                                                  Requiem for large-scale models
+4133663650988164381                                                                                  Fractal Cities: A Geometry of Form and Function
+17624835233644625816 Loose-coupling a cellular automaton model and GIS: long-term urban growth prediction for San Francisco and Washington/Baltimore
+11708968371888011740                                                                                                           A model of metropolis
+                     degree
+10912890065512100472    741
+1244859279975364799     535
+10961332031865325758    893
+4717128992502310138     642
+2520217403374467394     724
+11251159894538010831    618
+4133663650988164381     821
+17624835233644625816    765
+11708968371888011740    609
+[1] "pattern design ; 0.0770006514331529"
+                                                                                         titles degree
+13272584231780634930                                          Software architecture in practice    453
+5889789798439048647                    Design patterns for object-oriented software development    423
+14728727331132137888 Research through design as a method for interaction design research in HCI    430
+13583020187393833957                                                      Software architecture    436
+6790028221259787053                          A pattern language: towns, buildings, construction    993
+11250641333907381957                                   A pattern approach to interaction design    574
+15800168002406718474                          Patterns in game design (game development series)    329
+16758307189166775102             Design patterns: elements of reusable object-oriented software    389
+16821992797506766329        Designerly ways of knowing: Design discipline versus design science    489
+[1] "microdemographics ; 0.061034275405893"
+                                                                                                                                 titles
+13705130660925844783                                                                 Patterns of low and lowest-low fertility in Europe
+14464520191828590085                                     Women's rising employment and the future of the family in industrial societies
+9018205618309457946                          The role of cohabitation in family formation: The United States in comparative perspective
+14137548473413211171                                                         Fertility and women's employment in industrialized nations
+3296781824189007440                                                            The unfolding story of the second demographic transition
+15444229820439779167                                                         The end of the fertility transition in the developed world
+16016434093336005149 Value orientations and the second demographic transition (SDT) in Northern, Western and Southern Europe: An update
+5601825061911362392                                   Postmodern fertility preferences: From changing value orientation to new behavior
+17322694748910017240                                                                Low fertility and the state: The efficacy of policy
+                     degree
+13705130660925844783    438
+14464520191828590085    472
+9018205618309457946     378
+14137548473413211171    590
+3296781824189007440     720
+15444229820439779167    370
+16016434093336005149    364
+5601825061911362392     405
+17322694748910017240    358
+[1] "mobility ; 0.0458070254560032"
+                                                                                                                          titles
+5365633600662472662                                          Beyond the ABC: climate change policy and theories of social change
+6254896180609512286                                                                               Towards a politics of mobility
+17282793469390897801                                                                                 The new mobilities paradigm
+4201196150199576959               If mobility is everything then it is nothing: towards a relational politics of (im) mobilities
+1121173423225349579                                                                                  The 'system'of automobility
+3695974662468948395   Comfort, cleanliness and convenience: The social organization of normality (New Technologies/New Cultures)
+2146342294449525455                                                            On the move: Mobility in the modern western world
+2686208224199682797                                                                        Mobilities, immobilities and moorings
+1651985629605797085                                                                                                     Mobility
+                     degree
+5365633600662472662     498
+6254896180609512286     722
+17282793469390897801    775
+4201196150199576959     405
+1121173423225349579     619
+3695974662468948395     474
+2146342294449525455     701
+2686208224199682797     790
+1651985629605797085     503
+[1] "transport networks ; 0.0418107336139507"
+                                                                                                                         titles
+2954691226395119224                                                                                    From streets to patterns
+6095594172712490863                                                               Transport investment and economic development
+2281355390010472193                                                                                            Spatial networks
+10736906937684650439 Structure of transportation networks : relationships between network geometry and regional characteristics
+9816917836027162162                                                            Understanding individual human mobility patterns
+2821687454408122477                                    Friendship and mobility: user movement in location-based social networks
+18023412894415104128                              Uncovering individual and collective human dynamics from mobile phone records
+16554943416827649280                                                                          The spatial structure of networks
+1786780030627166320                                                                          The geography of transport systems
+                     degree
+2954691226395119224     394
+6095594172712490863     330
+2281355390010472193     529
+10736906937684650439    475
+9816917836027162162     468
+2821687454408122477     377
+18023412894415104128    272
+16554943416827649280    281
+1786780030627166320     438
+[1] "spatial analysis ; 0.0396935758669072"
+                                                                                    titles degree
+15192663253141002697        A computer movie simulating urban growth in the Detroit region    969
+16972362439774091019  Geography and geographers: Anglo-American human geography since 1945    410
+178943906033850409                  THE QUANTITATIVE REVOLUTION AND THEORETICAL GEOGRAPHY1    200
+13156654849293854935                              Spatial processes: models & applications    373
+10522753913691651281                                         Fiat and bona fide boundaries    308
+15280833378957606716                              Spatial econometrics: methods and models    493
+2345506572360229097            A new statistical approach to geographic variation analysis    202
+16273717094552420077                       SNAP and SPAN: Towards dynamic spatial ontology    310
+13396213350498880455    Wayfinding behavior: Cognitive mapping and other spatial processes    219
+[1] "demography ; 0.039655993185007"
+                                                                                                                                                                 titles
+4188850919320548794                                                                                           The trajectories of European cities, 1960\342\200\2232005
+4064969435645114363                                                                                                                 Making sense of counterurbanization
+9632165393470335086                                                                                                               Urbanization and Counter-Urbanization
+4532028598853778359  A changing demographic regime and evolving poly centric urban regions: Consequences for the size, composition and distribution of city populations
+6695067714824112574                                                                                                                                               Rural
+15316320435491682033                                                                                                          The hypothesis of the mobility transition
+5857440903041251328                                                                                                               Counterurbanisation in western Europe
+9773560585688720648                                                                                                   Europe\342\200\231s Second Demographic Transition
+10697354973784656468                                                                                                        Growth centres in the European urban system
+                     degree
+4188850919320548794     380
+4064969435645114363     309
+9632165393470335086     569
+4532028598853778359     306
+6695067714824112574     465
+15316320435491682033    355
+5857440903041251328     323
+9773560585688720648     994
+10697354973784656468    435
+

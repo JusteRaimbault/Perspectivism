@@ -1,0 +1,20 @@
+
+
+
+citcomnames = list('23'='chinese','7'='social geography','10'='urban economics','9'='complexity',
+                   '12'='regional science','4'='planning/governance', # planning / climate change / power / global city network
+                   '2'= 'pattern design','27'='demography','14'='mobility',
+                   '24'='transport networks','17'='microdemographics',
+                   '8'='procedural modeling','3'='aquaculture',# noise
+                   '6'='spatial analysis','21'='smart cities/big data',
+                   '13'='french','15'='german','19'='microeconomics', # noise
+                   '20'='settlement data','26'='economic development',
+                   '22'='chinese housing market', # negligible
+                   '18'='ireland','5'='sociology',
+                   '16'='corporate political science', # noise
+                   '11'='power','25'='noise','1'='trade'
+                   )
+
+
+
+
