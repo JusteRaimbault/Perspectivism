@@ -82,9 +82,9 @@ An increased interdisciplinarity in science projects has been highlighted as cru
 
 \cite{jang2019coevolutionary} abm structure knowledge coevol
 
-\cite{101371journalpone0221907} assymetry of interdisc between social and hard sciences in the credit given to other disciplines
+\cite{urbanska2019does} assymetry of interdisc between social and hard sciences in the credit given to other disciplines
 
-\cite{10.1371/journal.pbio.3000065} competition for funding is inefficient
+\cite{gross2019contest} competition for funding is inefficient
 
 \cite{pavlidis2014together} importance of teams vs solo authors 
 
@@ -99,10 +99,20 @@ An increased interdisciplinarity in science projects has been highlighted as cru
 \cite{akerlof2018persistence} paradigms persist in ``low-power'' sciences
 
 
+\subsection{Agent-based models of scientific knowledge production}
+
+\cite{shafiee2019agent} use an agent-based model to simulate the impact of a workflow to process data under different collaboration scenarios.
+
+\cite{doi10.1162qssa00008} simulate citation dynamics, and more particularly the consequence of introducing a performance index on citation patterns.
+
+% peer review
+\cite{feliciani2019scoping} surveys 46 simulation studies of peer review with numerous applications
+\cite{kovanis2016complex}
+
 
 \subsection{Perspectivism and Model Coupling}
 
-Beyond the simplifying opposition between fully constructivist and realistic approaches to science, several alternatives have been developed, among which Perspectivism \cite{giere2010scientific} is a way to tackle most of the issues opposing these two by taking an agent-based approach to the production of scientific knowledge. The principal feature of this point of view is to consider each scientific enterprise as a single perspective, in which an agent aims to understand an aspect of the real world (the ontology) with the mean of a medium, that is considered as a model. Constituted disciplines thus contains more or less compatible perspectives. The explicitation of this approach has been done by~\cite{raimbault2017knowledge} to embed it into knowledge domains, as a generalization of knowledge domains introduced by~\cite{livet2010}.
+Beyond the simplifying opposition between fully constructivist and realistic approaches to science, several alternatives have been developed, among which Perspectivism \cite{giere2010scientific} is a way to tackle most of the issues opposing these two by taking an agent-based approach to the production of scientific knowledge. The principal feature of this point of view is to consider each scientific enterprise as a single perspective, in which an agent aims to understand an aspect of the real world (the ontology) with the mean of a medium, that is considered as a model. Constituted disciplines thus contains more or less compatible perspectives. The explicitation of this approach has been done by~\cite{raimbault2017knowledge} to embed it into knowledge domains, as a generalization of knowledge domains introduced by~\cite{livet2010ontology}.
 
 
 We postulate that this approach to science may be a powerful tool to foster interdisciplinary collaborations, if used in a reflexive way in the construction of projects. More precisely, an ``Applied Perspectivism'' would imply a high-level of reflexivity for each agent implied, a mapping of the different layers of the enterprise and the positioning of each agent regarding the domains of knowledge. This way, in the particular case of model coupling, the explicitation of positioning and of the structure of each knowledge implied should ease interactions. As Banos points out~\cite{banos2013pour}, transversal work must alternate with deeper investigations in each discipline, in a kind of ``virtuous circle''. \cite{banos2017knowledge}
@@ -121,7 +131,7 @@ Various works have dealt with microscopic modeling of knowledge production, amon
 %http://bingweb.binghamton.edu/~sayama/NSF-SoO/
 \cite{dionne2019diversity} abm for group orga
 
-\cite{pluchino2018talent} role of randomness in individual trajectories success
+\cite{pluchino2019exploring} role of randomness in individual trajectories success
 
 \cite{shneiderman2018twin} model for research success
 
@@ -132,10 +142,25 @@ Various works have dealt with microscopic modeling of knowledge production, amon
 
 \section{An agent-based Model of Interdisciplinarity}
 
+\subsection{Rationale}
+
+Many dimensions and processes are at play to shape collaborations between scientists and more broadly between scientific disciplines. These include for example social networks, governance and funding issues, or knowledge proximity (which can occur on various knowledge domains, from methodological to empirical or theoretical). Our rationale is to propose an agent-based model grasping some of this complexity from the bottom-up focusing on scientist behavior, but simple enough so that it can be systematically explored. We include thus in the model two basic antagonist processes, namely a propensity to collaborate mostly determined by knowledge proximity, and some resources constraints (time, funding) which affect negatively the possibility to collaborate. Working with scientists outside one's field has indeed a high cost, from finding common ground and research questions to an possible construction of integrated knowledge \cite{frodeman2013sustainable}.
+
+
+\subsection{Model description}
+
 Agents are $N$ scientists $A_i$, characterized by a probability distribution $d(x)$ representing their disciplinary positioning in an abstract way: research is summarized by a one dimensional variable $\mathbb{R}$, and the disciplinary positioning on this axis is given by the distribution. The model is setup with normal distributions of width $\sigma$ with an average distributed uniformly in $\left[0;1\right]$. Scientists also have a time budget per day, that we will summarize as a future timetable $T(t_0):t>t_0 \mapsto p(t) \in \mathcal{P}$ where $\mathcal{P}$ is the space of scientific projects. The central feature of the model is the utility function $U(d_i,d_j)$ determining an abstract utility for scientist $i$ to collaborate with $j$ for a given project. It will be a function of the disciplinary overlap $o = \int_x d_i(x)\cdot d_j(x) dx$ and different assumptions on the form of this cost function can be tested. We take a linear cost in the overlap and a varying benefit, expressing the fact that researchers have different strategies regarding their interdisciplinary positioning. This way, we have $U(d_i,d_j) = o / i^\alpha - o$, assuming a fat-tail distribution of individual preferences for interdisciplinarity, given by a power law of parameter $\alpha$. A discrete choice formulation gives the probabilities for a scientist $i$ to choose among $j$ collaborators by $p_j = \exp\left(\beta U(d_i,d_j) \right)/\sum_k \exp\left(\beta U(d_i,d_k) \right)$. Given a social network of relations, that we take for now as a fixed scale-free social network, the temporal evolution of the model goes as follows: (i) one scientist with no current activity is picked up at random, and starts a project with one of its potential collaborators taken as its neighbors in the network that have free time, chosen with the probability $p_j$. The project has a random uniform duration and timetables are updated accordingly; (ii) current projects are updated and finished if necessary. The outcome of the model if measured by average depth across project, defined for one project as the overlapping areas between distribution, and average interdisciplinarity measured by total area covered.
 
 
 \section{Results}
+
+\subsection{Empirical data}
+
+% arxiv https://arxiv.org/help/bulk_data
+https://arxiv.org/pdf/1905.00075.pdf % citation network dataset
+https://github.com/mattbierbaum/arxiv-public-datasets/releases
+
+\subsection{Model exploration}
 
 The model is implemented in NetLogo and explored with OpenMole~\cite{reuillon2013openmole}. Source code and results are available on the open repository of the project\footnote{on github at \texttt{https://github.com/JusteRaimbault/Perspectivism}}. We run a basic grid exploration of the parameter space, both with random and small-world social networks, for parameters $\alpha,\beta,\sigma$ with 50 repetitions of the model for each parameter points, corresponding to 158,400 model runs. Figure~\ref{fig:plots} shows indicators variation on a given subspace and the corresponding Pareto front between depth and interdisciplinarity. We show a second order influence of preference hierarchy $\alpha$ and non-linearity of model behavior as a function of all parameters. Convergence properties are reasonable with this number of repetitions. Large individual disciplinary width $\sigma$ causes the choice parameter $\beta$ to have no influence, whereas low values give an increasing interdisciplinarity and a decreasing depth as a function of $\beta$. Random behavior ($\beta = 0$) leads to a constant depth of projects. When examining the Pareto front between the two contrary objectives, the optimal points occur for intermediate $\beta$ when $\sigma$ is fixed, suggesting non-trivial behavioral optima at a fixed disciplinary configuration. These first exploration show the complex dynamics of interdisciplinarity even with simple interaction rules and network structure, and suggests further applications such as the exploration of policies by changing network structure or studying in a more refined way the influence of $\alpha$.
 
