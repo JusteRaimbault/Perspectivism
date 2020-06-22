@@ -1,5 +1,5 @@
 
-import json,sys
+import json,sys,csv
 import scipy.sparse
 from igraph import *
 
@@ -23,9 +23,13 @@ if task=='--network':
     ##print(len(g.vs))
     g.vs["name"] = nodenames
 
-    largest = g.clusters().giant()
+    # not needed as do not consider distance: full graph
+    #largest = g.clusters().giant()
     ##print(largest)
     ##print(len(largest.vs))
+
+    communities = g.community_multilevel()
+    membership = communities.membership
 
 # need to compute:
 # - proximity matrix between author, based on cosine similarity between profiles in terms of communities
@@ -54,8 +58,10 @@ if task=='--collab':
     articlenum = dict()
 
     k = 0
+    rawauthorskeys = list(rawauthors.keys())
 
-    for article in rawauthors.keys():
+    for articlei in range(0,100):#len(rawauthorskeys)):
+        article = rawauthorskeys[articlei]
         k = k + 1
         if k%1000==0: print(k)
         for i in range(0,len(rawauthors[article])-1):
@@ -78,11 +84,18 @@ if task=='--collab':
     for i in articlenum.keys():
         articlenum[i] = 1/articlenum[i]
 
+
     print('Constructing sparse matrices')
-    collabmat = scipy.sparse.csc_matrix((collab.values(), ([k[0] for k in collab.keys()], [k[1] for k in collab.keys()])))
-    articlenummat = scipy.sparse.csc_matrix((articlenum.values(),(articlenum.keys(),articlenum.keys())))
+    collabmat = scipy.sparse.csc_matrix((list(collab.values()), ([k[0] for k in collab.keys()], [k[1] for k in collab.keys()])),shape=(len(rawauthorskeys),len(rawauthorskeys)))
+    articlenummat = scipy.sparse.csc_matrix((list(articlenum.values()),(list(articlenum.keys()),list(articlenum.keys()))),shape=(len(rawauthorskeys),len(rawauthorskeys)))
 
     print('Multiplying')
     collabprobas = articlenummat.dot(collabmat)
+    #print(collabprobas)
+    #print(collabprobas.sum(axis=0))
     print('Saving result')
-    scipy.sparse.save_npz('processed/collabprobas.npz', collabprobas)
+    #scipy.sparse.save_npz('processed/collabprobas.npz', collabprobas)
+    collabprobascoo = scipy.sparse.coo_matrix(collabprobas)
+    csv.writer(open('processed/collabprobas_data.csv','w')).writerows([[d] for d in collabprobascoo.data])
+    csv.writer(open('processed/collabprobas_rows.csv','w')).writerows([[d] for d in collabprobascoo.row])
+    csv.writer(open('processed/collabprobas_cols.csv','w')).writerows([[d] for d in collabprobascoo.col])
