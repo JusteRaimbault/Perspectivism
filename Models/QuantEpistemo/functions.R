@@ -23,10 +23,13 @@ nwProperties <- function(citnw){
 }
 
 export_gml <- function(citnw,exportfile){
-  citation = citnw
-  V(citation)$reduced_title = sapply(V(citation)$title,function(s){paste0(substr(s,1,50),"...")})
-  V(citation)$reduced_title = ifelse(degree(citation)>20,V(citation)$reduced_title,rep("",vcount(citation)))
-  write_graph(citation,file=exportfile,format = 'gml')
+  V(citnw)$reduced_title = sapply(V(citnw)$title,function(s){paste0(substr(s,1,50),"...")})
+  V(citnw)$reduced_title = ifelse(degree(citnw)>20,V(citnw)$reduced_title,rep("",vcount(citnw)))
+  # remove empty attributes
+  for(attr in c('abstract','authors','depth','priority','horizontalDepth','citingFilled','numHorizontalDepth',kws)){
+    citnw = remove.vertex.attribute(citnw,attr)
+  }
+  write_graph(citnw,file=exportfile,format = 'gml')
 }
 
 #'

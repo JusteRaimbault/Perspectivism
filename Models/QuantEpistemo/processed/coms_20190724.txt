@@ -1,0 +1,412 @@
+
+
+[1] "Community 23 ; corpus prop 0.00198561836039286"
+                                                                                                                                                                                                                                titles
+13913210131710696582                              \347\256\200\350\256\272\346\210\221\345\233\275\345\234\260\346\226\271\344\274\201\344\270\232\351\233\206\347\276\244\347\232\204\347\240\224\347\251\266\346\204\217\344\271\211
+15650903181777885004                              \345\205\263\344\272\216\345\234\260\346\226\271\344\272\247\344\270\232\351\233\206\347\276\244\347\240\224\347\251\266\347\232\204\345\207\240\347\202\271\345\273\272\350\256\256
+10886735737712644407  \344\270\234\350\216\236 PC \347\233\270\345\205\263\345\210\266\351\200\240\344\270\232\345\234\260\346\226\271\344\272\247\344\270\232\347\276\244\347\232\204\345\217\221\345\261\225\346\274\224\345\217\230
+15914553649375971865                  \344\272\247\344\270\232\351\233\206\347\276\244\345\244\215\346\235\202\347\275\221\347\273\234\347\232\204\347\273\223\346\236\204\344\270\216\345\212\237\350\203\275\345\210\206\346\236\220
+815364052411187693                                \344\272\247\344\270\232\351\233\206\347\276\244\346\246\202\345\277\265\347\220\206\350\247\243\347\232\204\350\213\245\345\271\262\350\257\257\345\214\272\350\257\204\346\236\220
+13480621376345925211 OECD \345\233\275\345\256\266\344\272\247\344\270\232\351\233\206\347\276\244\346\224\277\347\255\226\345\210\206\346\236\220\345\222\214\345\257\271\346\210\221\345\233\275\347\232\204\345\220\257\347\244\272
+2379333490826142243                                                       \345\214\272\345\237\237\351\233\206\347\276\244\350\207\252\347\250\224\346\200\247\351\243\216\351\231\251\346\210\220\345\233\240\345\210\206\346\236\220
+1256405439556907413                                                                                                                               \345\234\260\346\226\271\344\272\247\344\270\232\347\276\244\346\210\230\347\225\245
+14097568452380861876    \344\274\201\344\270\232\351\233\206\347\276\244\347\232\204\347\253\236\344\272\211\344\274\230\345\212\277: \350\265\204\346\272\220\347\232\204\347\273\223\346\236\204\346\200\247\346\225\264\345\220\210
+                     degree
+13913210131710696582     44
+15650903181777885004     28
+10886735737712644407     27
+15914553649375971865     31
+815364052411187693       27
+13480621376345925211     21
+2379333490826142243      53
+1256405439556907413      80
+14097568452380861876     73
+[1] "Community 7 ; corpus prop 0.115360042092604"
+                                                                                                   titles degree
+6276147815958634574             Geography Of Nowhere: The Rise And Declineof America'S Man-Made Landscape    569
+2326394414467466038  Neighborhood-based differences in physical activity: an environment scale evaluation    534
+1168097485053302327                                            Life between buildings: using public space    722
+7796593555459073876                                                                          Public space    567
+9523166524674690309       Gasoline consumption and cities: a comparison of US cities with a global survey    604
+17432355468488780935                                                                    Cities for people    626
+9103241408869786786                      Built environments and mode choice: toward a normative framework    540
+12927982106716823703            Suburban nation: The rise of sprawl and the decline of the American dream    710
+8195050481828346524        How the built environment affects physical activity: views from urban planning    666
+[1] "Community 10 ; corpus prop 0.123302515534175"
+                                                                              titles degree
+2469647782694819285                            Zipf's law for cities: an explanation    957
+9934080346828509979                                    The sizes and types of cities    831
+9149390381318862741                                       Marshall's scale economies    802
+15036576187576291249              Micro-foundations of urban agglomeration economies    908
+17856187391640350134   Evidence on the nature and sources of agglomeration economies    915
+7549250524678280857                      Die r\303\244umliche ordnung der wirtschaft    929
+11989067378723611199                       Increasing returns and economic geography    914
+4966090460459092423                        Increasing returns and economic geography    917
+17326276765383385041 Related variety, unrelated variety and regional economic growth    827
+[1] "Community 9 ; corpus prop 0.0893966726798958"
+                                                                                                                                              titles
+10912890065512100472                                                                                                  Self-organization and the city
+1244859279975364799                                                                        Geosimulation: Automata-based modeling of urban phenomena
+10961332031865325758                                   UrbanSim: Modeling urban development for land use, transportation, and environmental planning
+4717128992502310138                                                                                                        The new science of cities
+2520217403374467394                             Cities and Complexity: Understanding Cities with Cellular Automata, Agent-Based Models, and Fractals
+11251159894538010831                                                                                                  Requiem for large-scale models
+4133663650988164381                                                                                  Fractal Cities: A Geometry of Form and Function
+17624835233644625816 Loose-coupling a cellular automaton model and GIS: long-term urban growth prediction for San Francisco and Washington/Baltimore
+11708968371888011740                                                                                                           A model of metropolis
+                     degree
+10912890065512100472    741
+1244859279975364799     535
+10961332031865325758    893
+4717128992502310138     642
+2520217403374467394     724
+11251159894538010831    618
+4133663650988164381     821
+17624835233644625816    765
+11708968371888011740    609
+[1] "Community 12 ; corpus prop 0.180039837642814"
+                                                                                                         titles
+4791630039065610518            One size fits all?: Towards a differentiated regional innovation policy approach
+8225298525766582140                     Towards a knowledge\342\200\220based theory of the geographical cluster
+13909057361648772149                 Regional innovation systems: the role of governances in a globalized world
+15335185379906862092                 Knowledge bases and regional innovation systems: Comparing Nordic clusters
+7086787680145296542                                 Deconstructing clusters: chaotic concept or policy panacea?
+16384014326091099523      The cultural economy of cities: essays on the geography of image-producing industries
+12024993674344358955                                  The associational economy: firms, regions, and innovation
+7138031596242410677         Location, competition, and economic development: Local clusters in a global economy
+2350903049579959305  Clusters and knowledge: local buzz, global pipelines and the process of knowledge creation
+                     degree
+4791630039065610518     901
+8225298525766582140     836
+13909057361648772149    771
+15335185379906862092    854
+7086787680145296542     925
+16384014326091099523    754
+12024993674344358955    935
+7138031596242410677     990
+2350903049579959305    1000
+[1] "Community 4 ; corpus prop 0.124824614151132"
+                                                                                                                 titles
+3721367010381806798                                                                           Cities and climate change
+11433377535323409332                 Urban policy mobilities and global circuits of knowledge: Toward a research agenda
+6069768789846265736   Splintering urbanism: networked infrastructures, technological mobilities and the urban condition
+590642737589040248                                                Urban informality: toward an epistemology of planning
+10646632526787126952                                         Social power and the urbanization of water: flows of power
+5813750197845728778                                                         World city network: a global urban analysis
+1688474123460397654                Urban complexity and spatial strategies: Towards a relational planning for our times
+14277738479043148793                                             The 21st-century metropolis: new geographies of theory
+16109084315140887089                                                 Ordinary cities: between modernity and development
+                     degree
+3721367010381806798     541
+11433377535323409332    538
+6069768789846265736    1000
+590642737589040248      577
+10646632526787126952    557
+5813750197845728778     773
+1688474123460397654     737
+14277738479043148793    623
+16109084315140887089    818
+[1] "Community 2 ; corpus prop 0.0770006514331529"
+                                                                                         titles degree
+13272584231780634930                                          Software architecture in practice    453
+5889789798439048647                    Design patterns for object-oriented software development    423
+14728727331132137888 Research through design as a method for interaction design research in HCI    430
+13583020187393833957                                                      Software architecture    436
+6790028221259787053                          A pattern language: towns, buildings, construction    993
+11250641333907381957                                   A pattern approach to interaction design    574
+15800168002406718474                          Patterns in game design (game development series)    329
+16758307189166775102             Design patterns: elements of reusable object-oriented software    389
+16821992797506766329        Designerly ways of knowing: Design discipline versus design science    489
+[1] "Community 27 ; corpus prop 0.039655993185007"
+                                                                                                                                                                 titles
+4188850919320548794                                                                                           The trajectories of European cities, 1960\342\200\2232005
+4064969435645114363                                                                                                                 Making sense of counterurbanization
+9632165393470335086                                                                                                               Urbanization and Counter-Urbanization
+4532028598853778359  A changing demographic regime and evolving poly centric urban regions: Consequences for the size, composition and distribution of city populations
+6695067714824112574                                                                                                                                               Rural
+15316320435491682033                                                                                                          The hypothesis of the mobility transition
+5857440903041251328                                                                                                               Counterurbanisation in western Europe
+9773560585688720648                                                                                                   Europe\342\200\231s Second Demographic Transition
+10697354973784656468                                                                                                        Growth centres in the European urban system
+                     degree
+4188850919320548794     380
+4064969435645114363     309
+9632165393470335086     569
+4532028598853778359     306
+6695067714824112574     465
+15316320435491682033    355
+5857440903041251328     323
+9773560585688720648     994
+10697354973784656468    435
+[1] "Community 14 ; corpus prop 0.0458070254560032"
+                                                                                                                          titles
+5365633600662472662                                          Beyond the ABC: climate change policy and theories of social change
+6254896180609512286                                                                               Towards a politics of mobility
+17282793469390897801                                                                                 The new mobilities paradigm
+4201196150199576959               If mobility is everything then it is nothing: towards a relational politics of (im) mobilities
+1121173423225349579                                                                                  The 'system'of automobility
+3695974662468948395   Comfort, cleanliness and convenience: The social organization of normality (New Technologies/New Cultures)
+2146342294449525455                                                            On the move: Mobility in the modern western world
+2686208224199682797                                                                        Mobilities, immobilities and moorings
+1651985629605797085                                                                                                     Mobility
+                     degree
+5365633600662472662     498
+6254896180609512286     722
+17282793469390897801    775
+4201196150199576959     405
+1121173423225349579     619
+3695974662468948395     474
+2146342294449525455     701
+2686208224199682797     790
+1651985629605797085     503
+[1] "Community 24 ; corpus prop 0.0418107336139507"
+                                                                                                                         titles
+2954691226395119224                                                                                    From streets to patterns
+6095594172712490863                                                               Transport investment and economic development
+2281355390010472193                                                                                            Spatial networks
+10736906937684650439 Structure of transportation networks : relationships between network geometry and regional characteristics
+9816917836027162162                                                            Understanding individual human mobility patterns
+2821687454408122477                                    Friendship and mobility: user movement in location-based social networks
+18023412894415104128                              Uncovering individual and collective human dynamics from mobile phone records
+16554943416827649280                                                                          The spatial structure of networks
+1786780030627166320                                                                          The geography of transport systems
+                     degree
+2954691226395119224     394
+6095594172712490863     330
+2281355390010472193     529
+10736906937684650439    475
+9816917836027162162     468
+2821687454408122477     377
+18023412894415104128    272
+16554943416827649280    281
+1786780030627166320     438
+[1] "Community 17 ; corpus prop 0.061034275405893"
+                                                                                                                                 titles
+13705130660925844783                                                                 Patterns of low and lowest-low fertility in Europe
+14464520191828590085                                     Women's rising employment and the future of the family in industrial societies
+9018205618309457946                          The role of cohabitation in family formation: The United States in comparative perspective
+14137548473413211171                                                         Fertility and women's employment in industrialized nations
+3296781824189007440                                                            The unfolding story of the second demographic transition
+15444229820439779167                                                         The end of the fertility transition in the developed world
+16016434093336005149 Value orientations and the second demographic transition (SDT) in Northern, Western and Southern Europe: An update
+5601825061911362392                                   Postmodern fertility preferences: From changing value orientation to new behavior
+17322694748910017240                                                                Low fertility and the state: The efficacy of policy
+                     degree
+13705130660925844783    438
+14464520191828590085    472
+9018205618309457946     378
+14137548473413211171    590
+3296781824189007440     720
+15444229820439779167    370
+16016434093336005149    364
+5601825061911362392     405
+17322694748910017240    358
+[1] "Community 8 ; corpus prop 0.00634520946081379"
+                                                                                           titles degree
+9705582363586719367                                 Interactive geometric simulation of 4d cities    104
+2940782014375330091                                        Interactive procedural street modeling    165
+12407200070021959139                                                         Instant architecture    521
+5118259387473151485                               Computer-generated residential building layouts    100
+8745365273514470007                        Modelling the appearance and behaviour of urban spaces    101
+11338239797780900990                     Real-time procedural generation ofpseudo infinite'cities    123
+11170254096655645384 Interactive design of urban spaces using geometrical and behavioral modeling     81
+7303223537294431631                                                 Procedural modeling of cities    703
+15598841868226107895                                             Procedural modeling of buildings    638
+[1] "Community 3 ; corpus prop 0.000200440970134295"
+                                                                                            titles degree
+4496918418263516849  Industrial agglomeration and production costs in Norwegian salmon aquaculture     32
+13904990787106826150                                                               Farming the sea     29
+[1] "Community 6 ; corpus prop 0.0396935758669072"
+                                                                                    titles degree
+15192663253141002697        A computer movie simulating urban growth in the Detroit region    969
+16972362439774091019  Geography and geographers: Anglo-American human geography since 1945    410
+178943906033850409                  THE QUANTITATIVE REVOLUTION AND THEORETICAL GEOGRAPHY1    200
+13156654849293854935                              Spatial processes: models & applications    373
+10522753913691651281                                         Fiat and bona fide boundaries    308
+15280833378957606716                              Spatial econometrics: methods and models    493
+2345506572360229097            A new statistical approach to geographic variation analysis    202
+16273717094552420077                       SNAP and SPAN: Towards dynamic spatial ontology    310
+13396213350498880455    Wayfinding behavior: Cognitive mapping and other spatial processes    219
+[1] "Community 21 ; corpus prop 0.0292706454199238"
+                                                                                                     titles degree
+8589653928079398169                                            Me++: The cyborg self and the networked city    310
+1855608053526653094                                                              Smart cities of the future    513
+12421021744377237110 Will the real smart city please stand up? Intelligent, progressive or entrepreneurial?    718
+2176034981867054893                                                             Software-sorted geographies    316
+3911740170002921694                                         The real-time city? Big data and smart urbanism    580
+7341153853011089467                       Big data and human geography: Opportunities, challenges and risks    295
+13224876249693810802  The data revolution: Big data, open data, data infrastructures and their consequences    423
+11861222151768325432                                       Big Data, new epistemologies and paradigm shifts    336
+10678190421057946279                                Smartmentality: The smart city as disciplinary strategy    405
+[1] "Community 13 ; corpus prop 0.00622619763479655"
+                                                                                                                                              titles
+13484128801828264722                                                                                Les r\303\251gions et l'\303\251conomie mondiale
+14273507940671164200  Les r\303\251gions qui gagnent: districts et r\303\251seaux: les nouveaux paradigmes de la g\303\251ographie \303\251conomique
+11518387905011341617                                           Innovaci\303\263n y desarrollo territorial: algunos debates te\303\263ricos recientes
+12675485160629481245                                                                                 M\303\251tapolis: ou l'avenir d\303\252s villes
+9399671800085439156                                O espa\303\247o dividido: os dois circuitos da economia urbana dos pa\303\255ses subdesenvolvidos
+9542537822327791783                                                                                             Economie r\303\251gionale et urbaine
+14838384576084148668                                                                Introduction \303\240 la g\303\251ographie humaine-9e \303\251d.
+5833011734728937101                                          R\303\251v\303\251lation de ressources sp\303\251cifiques et coordination situ\303\251e
+6976723567084959555                                                                     R\303\251seaux et territoires-significations crois\303\251es
+                     degree
+13484128801828264722     64
+14273507940671164200    295
+11518387905011341617    122
+12675485160629481245    431
+9399671800085439156      67
+9542537822327791783     242
+14838384576084148668     66
+5833011734728937101      71
+6976723567084959555     107
+[1] "Community 15 ; corpus prop 0.00282496492283023"
+                                                                                                                    titles
+1877133844556111085                                                                                         Raumsoziologie
+9039268120110450471                              Revolutionen der Erreichbarkeit: Gesellschaft, Raum und Verkehr im Wandel
+4623463035225040879                                        Sozial\303\266kologische Stadtforschung und Mehr-Ebenen-Analyse
+4447742223956808891                                                                Stadtplanung in der Wissensgesellschaft
+9760226671232713508                                                      Einf\303\274hrung in die Stadt-und Raumsoziologie
+9338835945838262242                                                                           Soziologische Stadtforschung
+5655934583832202903                                                                Raum als Element sozialer Kommunikation
+11466491595281705489              Kulturelle Geographien: Zur Besch\303\244ftigung mit Raum und Ort nach dem Cultural Turn
+13866592665056652262  Sozialgeographie allt\303\244glicher Regionalisierungen: Globalisierung, Region und Regionalisierung
+                     degree
+1877133844556111085     286
+9039268120110450471      30
+4623463035225040879      26
+4447742223956808891      48
+9760226671232713508      88
+9338835945838262242      40
+5655934583832202903      90
+11466491595281705489     34
+13866592665056652262    282
+[1] "Community 19 ; corpus prop 0.00543069753457607"
+                                                                                      titles degree
+5386159303072130194  Speed and search: Designing organizations for turbulence and complexity     91
+5600266510713203141                                               Competitive spatial models     93
+3615634425488665523                Competitive location models: A framework and bibliography    148
+13686881504666552842                         Primer on decision making: How decisions happen    124
+6901482060736290477                        Organizational alignment as competitive advantage    101
+2701985705789863320                                                 Why bounded rationality?    118
+267429551287168646            How strategy\342\200\220making processes can make a difference    100
+15180240961842454656                               An evolutionary theory of economic change    224
+17508331728954373080                               Location analysis: A synthesis and survey    106
+[1] "Community 20 ; corpus prop 0.00549959911805973"
+                                                                                                                                                      titles
+15894745373001816630                                                                   Detecting change in urban areas at continental scales with MODIS data
+660126773631200349    Operating procedure for the production of the Global Human Settlement Layer from Landsat data of the epochs 1975, 1990, 2000, and 2014
+6720424475107479463                                                   A global human settlement layer from optical HR/VHR RS data: Concept and first results
+8517900796925406984                                                                                               China: Open access to Earth land-cover map
+4704068805408411744                                                                                                   Spatial scaling of stable night lights
+2393341699767337131                                                        A Harmonised Definition of Cities and Rural Areas: The New Degree of Urbanisation
+7300242378379209994                                                                       Spatial analysis of global urban extent from DMSP-OLS night lights
+13818409846180852840                                                               High-resolution mapping of global surface water and its long-term changes
+16846546123664729498                                                 Mapping local climate zones for a worldwide database of the form and function of cities
+                     degree
+15894745373001816630     72
+660126773631200349       75
+6720424475107479463     171
+8517900796925406984     113
+4704068805408411744      59
+2393341699767337131      50
+7300242378379209994     198
+13818409846180852840     72
+16846546123664729498     69
+[1] "Community 26 ; corpus prop 0.000432200841852075"
+                                                                                                                         titles
+12818161381418496049                                     Economic development policy and local services: The case of child care
+7046433458602745522                              The role of training and firm's competitiveness in the knowledge-based economy
+6383716359119669793             The great divide: economic development theory versus practice-a survey of the current landscape
+8048696750038504435            Business incentive use among US local governments: A story of accountability and policy learning
+7078535638075828313                                           HUMAN CAPITAL DEVELOPMENT DYNAMICS: THE KNOWLEDGE BASED APPROACH.
+14147438399249168800          Yesterday's gains versus today's realties: Lessons from 10 years of economic development practice
+15570800811047038234                                              Policy versus place luck: Achieving local economic prosperity
+5166382583639287576                                                                Business incentive adoption in the recession
+9962752171055229604  Integrating training in business strategies means greater impact of training on the firm's competitiveness
+                     degree
+12818161381418496049      4
+7046433458602745522       9
+6383716359119669793      15
+8048696750038504435      43
+7078535638075828313       4
+14147438399249168800     30
+15570800811047038234     28
+5166382583639287576      26
+9962752171055229604       6
+[1] "Community 22 ; corpus prop 0.000933303267187813"
+                                                                                                                                                   titles
+6966383979471278587                                                                                                          House price bubbles in China
+16353272362843191477                                                                                      A real estate boom with Chinese characteristics
+3412251627730608804                                                                                      Is there a bubble in the Chinese housing market?
+782284424116154789   Housing-choice hindrances and urban spatial structure: Evidence from matched location and location-preference data in Chinese cities
+4078446506178177872                                                                                                       The great housing boom of China
+2027503348627297789                                                                                    Real estate bubbles in China: a tale of two cities
+11067809718561905200                                                                                           Are house prices rising too fast in China?
+13945838133030056808                                                                                                Status competition and housing prices
+3856101399703847717                                                       House price index construction in the nascent housing market: The case of China
+                     degree
+6966383979471278587      42
+16353272362843191477     37
+3412251627730608804      42
+782284424116154789       25
+4078446506178177872      29
+2027503348627297789       8
+11067809718561905200     53
+13945838133030056808     19
+3856101399703847717      38
+[1] "Community 18 ; corpus prop 0.000739126077370215"
+                                                                                                      titles degree
+17513130422169863929                                                Problems of industrialisation in Ireland     31
+15212441770762555376                                     Explaining the absence of class politics in Ireland     35
+8625890662515932582                     The state and economic interests: Ireland in comparative perspective     18
+15652816288513836088                                                             Are Irish parties peculiar?     22
+2191992128854330950                        Industrialisation, class formation and social mobility in Ireland     26
+11752802903131048838                                           Catholicism and industrial society in Ireland     20
+2731429344994579190               Explaining the Irish pattern of social fluidity: the role of the political     14
+14178879025841466399                                                     The context of economic development     25
+4635640377392011228   The significance of small-scale landholders in Ireland's socio-economic transformation     31
+[1] "Community 5 ; corpus prop 0.0017225395870916"
+                                                                                                   titles degree
+1139975581038643210          Decentralizing employment protection in Europe: territorial pacts and beyond     15
+5774977045698389093                                                                    Economic sociology     53
+12785275979974432326 'Breaking in'and'breaking out': A Weberian approach to entrepreneurial opportunities     59
+11059761041824962068                   Motivations and performance conditions for ethnic entrepreneurship     57
+10365896982549267491 Community agency and community engagement: re-theorising participation in governance     23
+12598204647885325818                                            Sviluppo locale: un progetto per l'Italia    138
+3846512939941288464                                                    Capitale sociale e sviluppo locale     92
+[1] "Community 16 ; corpus prop 0.000238023652034476"
+                                                                                                              titles
+1465932318622562867       Political views and corporate decision making: The case of corporate social responsibility
+18258853051204122878 Are red or blue companies more likely to go green? Politics and corporate social responsibility
+1210977685613142183            Strange bedfellows? Voluntary corporate social responsibility disclosure and politics
+17226506247389503599                                                      The impact of religiosity on audit pricing
+                     degree
+1465932318622562867      37
+18258853051204122878     34
+1210977685613142183       3
+17226506247389503599      2
+[1] "Community 11 ; corpus prop 0.000112748045700541"
+                                                                                                              titles
+158169445564496845                                               Re-framing strategy: power, politics and accounting
+6470942855200060385  The new economic diplomacy: decision-making and negotiation in international economic relations
+                    degree
+158169445564496845      13
+6470942855200060385      5
+[1] "Community 25 ; corpus prop 3.75826819001804e-05"
+  titles degree
+1   <NA>     NA
+2   <NA>     NA
+3   <NA>     NA
+4   <NA>     NA
+5   <NA>     NA
+6   <NA>     NA
+[1] "Community 1 ; corpus prop 7.51653638003608e-05"
+                                                                                                            titles
+578600111733786703    Boosting innovation and knowledge through delocalization: market intelligence at trade shows
+12007641600263378370                                                       Competitive Intelligence at Trade Shows
+                     degree
+578600111733786703       13
+12007641600263378370      9
+
+
+
