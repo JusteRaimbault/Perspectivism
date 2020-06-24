@@ -79,7 +79,7 @@ for(c in unique(com$membership)){
 
 # expert knowledge naming
 
-citcomnames = list('23'='chinese','7'='social geography','10'='economic geography','9'='complexity',
+citcomnames = list('23'='chinese','7'='social geography','10'='urban economics','9'='complexity',
                    '12'='regional science','4'='planning/governance', # planning / climate change / power / global city network
                    '2'= 'pattern design','27'='demography','14'='mobility',
                    '24'='transport networks','17'='microdemographics',
@@ -109,8 +109,8 @@ summary(lm(data=data.frame(y=log(sort(comsizes[comsizes>5000],decreasing = T)),x
 # most important communities
 
 d=degree(citationcorehigher,mode='in')
-for(k in names(sort(comsizes[comsizes>5000],decreasing = T))){
-  show(paste0(k," ; ",citcomnames[k]," ; ",length(which(com$membership==k))/vcount(undirected_core)))
+for(k in names(sort(comsizes[comsizes>1000],decreasing = T))){
+  show(paste0(k," ; ",citcomnames[k]," ; ",100*length(which(com$membership==k))/vcount(undirected_core)))
   #currentd=d[com$membership==k];dth=sort(currentd,decreasing = T)[10]
   #show(data.frame(titles=V(citationcorehigher)$title[com$membership==k&d>dth],degree=d[com$membership==k&d>dth]))
 }
@@ -353,6 +353,79 @@ ggsave(file=paste0(resdir,'chapters_composition_normalized_d1_nums.png'),width=3
 summary(apply(probasd1,1,function(r){1-sum(r^2)}))
 
 
+
+
+#####
+##
+
+# gephi com names
+
+gephinodes <- as.tbl(read.csv('processed/core_nodes_gephi.csv',sep=';',colClasses = c('integer','character','character','integer','character','integer')))
+gephinodes <- left_join(gephinodes,data.frame(name=V(citationcorehigher)$name,d=degree(citationcorehigher,mode='in')))
+
+gephinodes %>% group_by(modularity_class) %>% summarize(count=100*n()/vcount(cit),
+                                                        title=title[which(d==max(d))[1]],
+                                                        title2=title[which(d==quantile(d,0.95))[1]]
+                                                        )
+
+gephicomnames = list(
+  '0'='transport networks',# / urban physics / scaling laws
+  '1'='microdemographics',
+  '2'='spatial analysis',
+  '3'='urban economics',
+  '4'='complexity',
+  '5'='social geography',
+  '6'='noise',
+  '7'='noise',
+  '8'='mobility',
+  '9'='demographics', # / urban growth
+  '10'='noise',
+  '11'='procedural modeling',
+  '12'='noise',
+  '13'='planning/governance',
+  '14'='pattern design',
+  '15'='noise',
+  '16'='chinese',
+  '17'='regional science',
+  '18'='smart city'
+)
+
+#[1] "12 ; regional science ; 18.0039837642814"
+#[1] "4 ; planning/governance ; 12.4824614151132"
+#[1] "10 ; urban economics ; 12.3302515534175"
+#[1] "7 ; social geography ; 11.5360042092604"
+#[1] "9 ; complexity ; 8.93966726798958"
+#[1] "2 ; pattern design ; 7.70006514331529"
+#[1] "17 ; microdemographics ; 6.1034275405893"
+#[1] "14 ; mobility ; 4.58070254560032"
+#[1] "24 ; transport networks ; 4.18107336139507"
+#[1] "6 ; spatial analysis ; 3.96935758669072"
+#[1] "27 ; demography ; 3.9655993185007"
+#[1] "21 ; smart cities/big data ; 2.92706454199238"
+#[1] "8 ; procedural modeling ; 0.634520946081379"
+
+#citcomnames = list('23'='chinese','7'='social geography','10'='urban economics','9'='complexity',
+#                   '12'='regional science','4'='planning/governance', # planning / climate change / power / global city network
+#                   '2'= 'pattern design','27'='demography','14'='mobility',
+#                   '24'='transport networks','17'='microdemographics',
+#                   '8'='procedural modeling','3'='aquaculture',# noise
+#                   '6'='spatial analysis','21'='smart cities/big data',
+#                   '13'='french','15'='german','19'='microeconomics', # noise
+#                   '20'='settlement data','26'='economic development',
+#                   '22'='chinese housing market', # negligible
+#                   '18'='ireland','5'='sociology',
+#                   '16'='corporate political science', # noise
+#                   '11'='power','25'='noise','1'='trade'
+#)
+
+# reexport to have right coms
+
+write.table(data.frame(id=V(citationcorehigher)$name,title=V(citationcorehigher)$title,year=V(citationcorehigher)$year,
+                     lang=V(citationcorehigher)$lang,community=c(membership(com))
+                     ),file='processed/core_nodes.csv',sep=';',col.names = T,row.names = F)
+write.table(data.frame(from=tail_of(citationcorehigher,E(citationcorehigher))$name,
+                       to=head_of(citationcorehigher,E(citationcorehigher))$name
+                       ),file='processed/core_edges.csv',sep=';',col.names = T,row.names = F)
 
 
 
