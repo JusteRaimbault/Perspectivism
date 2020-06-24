@@ -151,9 +151,11 @@ if task=='--proximity':
 
     print('Constructing sparse matrices')
     print('probas mat')
+    print('probas dico size = '+str(len(probasdico)))
     probasmat = scipy.sparse.csc_matrix((list(probasdico.values()), ([k[0] for k in probasdico.keys()], [k[1] for k in probasdico.keys()])),shape=(len(rawauthorskeys),len(rawauthorskeys)))
     del probasdico
     print('article num mat')
+    print('article num size = '+str(len(articlenum)))
     articlenummat = scipy.sparse.csc_matrix((list(articlenum.values()),(list(articlenum.keys()),list(articlenum.keys()))),shape=(len(rawauthorskeys),len(rawauthorskeys)))
     del articlenum
 
