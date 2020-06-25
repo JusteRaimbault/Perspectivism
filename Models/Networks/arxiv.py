@@ -1,5 +1,5 @@
 
-import json,sys,csv,pickle,random
+import json,sys,csv,pickle,random,numpy
 import scipy.sparse
 from igraph import *
 
@@ -153,10 +153,12 @@ if task=='--proximity':
     print('probas mat')
     print('probas dico size = '+str(len(probasdico)))
     probasmat = scipy.sparse.csc_matrix((list(probasdico.values()), ([k[0] for k in probasdico.keys()], [k[1] for k in probasdico.keys()])),shape=(len(rawauthorskeys),len(rawauthorskeys)))
+    print(probasmat.shape)
     del probasdico
     print('article num mat')
     print('article num size = '+str(len(articlenum)))
     articlenummat = scipy.sparse.csc_matrix((list(articlenum.values()),(list(articlenum.keys()),list(articlenum.keys()))),shape=(len(rawauthorskeys),len(rawauthorskeys)))
+    print(articlenummat.shape)
     del articlenum
 
     print('Multiplying')
@@ -165,7 +167,69 @@ if task=='--proximity':
     del probasmat
 
     print('Proximity')
-    proximity = probas.dot(probas.transpose())
+    print(probas.shape)
+    print(probas.nnz)
+    print(' -> transposing')
+    probtrans = probas.transpose()
+    print(' -> computing col by col')
+    #proximity = probas.dot(probtrans)
+    ncol = probtrans.shape[1]
+
+    # need the collab proba sparse mat for correlations
+    collabmat = scipy.sparse.csc_matrix(([float(l) for l in open('processed/collabprobas_data.csv').readlines()],([int(l) for l in open('processed/collabprobas_rows.csv').readlines()],[int(l) for l in open('processed/collabprobas_cols.csv').readlines()])),shape=(len(rawauthorskeys),len(rawauthorskeys)))
+
+    sxy = 0
+    sxx = 0
+    syy = 0
+    sx = 0
+    sy = 0
+
+    proximityhist = list(numpy.repeat(0,1001))
+    #bycomproximityhists = {}
+    #for com in coms: bycomproximityhists[com] = numpy.repeat(0,1001)
+    #bycomproximityhists = list(numpy.repeat(list(numpy.repeat(0,1001)),len(coms),axis=0))
+    bycomproximityhists = numpy.zeros((len(coms),1001)).tolist()
+    print(bycomproximityhists)
+
+    for j in range(0,ncol):
+        if j%1000==0: print(str(j)+'; '+str(sxy))
+        currentprobs = probtrans.getcol(j)
+        currentcol = probas.dot(currentprobs).tocoo()
+        authorcom = numpy.argmax(currentprobs.toarray())
+        if currentcol.sum()>0:
+            currentcollab = collabmat.getcol(j)
+            #sxy = sxy + currentcol.dot(currentcollab.transpose())
+            #sxx = sxx + currentcol.dot(currentcol.transpose())
+            #syy = syy + currentcollab.dot(currentcollab.transpose())
+            sxy = sxy + currentcol.multiply(currentcollab).sum()
+            sxx = sxx + currentcol.power(2).sum()
+            syy = syy + currentcollab.power(2).sum()
+            sx = sx + currentcol.sum()
+            sy = sy + currentcollab.sum()
+    
+            currentcolcoo = currentcol.tocoo()
+            for d in currentcolcoo.data:
+                histind = int(math.floor(d*1000))
+                proximityhist[histind] = proximityhist[histind] + 1
+                bycomproximityhists[authorcom][histind] = bycomproximityhists[authorcom][histind] + 1
+            proximityhist[0] = proximityhist[0] + currentcol.shape[0] - currentcolcoo.getnnz()
+            bycomproximityhists[authorcom][0] = bycomproximityhists[authorcom][0] + currentcol.shape[0] - currentcolcoo.getnnz()
+            #much too large to be fully written -> compute correlation and histograms on the fly
+            #csv.writer(open('processed/proximity_data.csv','a+')).writerows([[d] for d in currentcol.data])
+            #csv.writer(open('processed/proximity_rows.csv','a+')).writerows([[d] for d in currentcol.row])
+            #csv.writer(open('processed/proximity_cols.csv','a+')).writerows([[d] for d in numpy.repeat(j,currentcol.nnz)])
+        else:
+            proximityhist[0] = proximityhist[0] + 1
+            bycomproximityhists[authorcom][0] = bycomproximityhists[authorcom][0] + 1
+    
+    del probtrans
+    # export
+    csv.writer(open('processed/bycomproximityhists.csv','w')).writerows(bycomproximityhists)
+    csv.writer(open('processed/proximityhist.csv','w')).writerows([[d] for d in proximityhist])
+    N = len(rawauthorskeys)*len(rawauthorskeys)
+    corr = (1/(N-1)*sxy - 1/(N*(N-1))*sx*sy)/math.sqrt((1/N*sxx - math.pow(1/N*sx,2))*(1/N*syy - math.pow(1/N*sy,2)))
+    print(corr)
+    open('processed/corr.txt','w').write(str(corr))
 
     print('Saving result')
     probascoo = scipy.sparse.coo_matrix(probas)
@@ -174,11 +238,11 @@ if task=='--proximity':
     csv.writer(open('processed/comprobas_rows.csv','w')).writerows([[d] for d in probascoo.row])
     csv.writer(open('processed/comprobas_cols.csv','w')).writerows([[d] for d in probascoo.col])
 
-    proximitycoo = scipy.sparse.coo_matrix(proximity)
-    del proximity
-    csv.writer(open('processed/proximity_data.csv','w')).writerows([[d] for d in proximitycoo.data])
-    csv.writer(open('processed/proximity_rows.csv','w')).writerows([[d] for d in proximitycoo.row])
-    csv.writer(open('processed/proximity_cols.csv','w')).writerows([[d] for d in proximitycoo.col])
+    #proximitycoo = scipy.sparse.coo_matrix(proximity)
+    #del proximity
+    #csv.writer(open('processed/proximity_data.csv','w')).writerows([[d] for d in proximitycoo.data])
+    #csv.writer(open('processed/proximity_rows.csv','w')).writerows([[d] for d in proximitycoo.row])
+    #csv.writer(open('processed/proximity_cols.csv','w')).writerows([[d] for d in proximitycoo.col])
 
 
 
