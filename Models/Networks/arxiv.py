@@ -146,6 +146,12 @@ if task=='--proximity':
                     else:
                         articlenum[authind] = 1
 
+    # export raw article num
+    articlenumarray = numpy.repeat(0,len(rawauthorskeys))
+    for a in articlenum.keys():
+        articlenumarray[a] = articlenum[a]
+    open('processed/articlenum.csv','w').writelines([str(n)+'\n' for n in articlenumarray])
+
     for i in articlenum.keys():
         articlenum[i] = 1/articlenum[i]
 
@@ -161,10 +167,10 @@ if task=='--proximity':
     print(articlenummat.shape)
     del articlenum
 
-    print('Multiplying')
-    probas = articlenummat.dot(probasmat)
-    del articlenummat
-    del probasmat
+    #print('Multiplying')
+    #probas = articlenummat.dot(probasmat)
+    #del articlenummat
+    #del probasmat
 
     #print('Proximity')
     #print(probas.shape)
@@ -231,12 +237,12 @@ if task=='--proximity':
     #print(corr)
     #open('processed/corr.txt','w').write(str(corr))
 
-    print('Saving result')
-    probascoo = scipy.sparse.coo_matrix(probas)
-    del probas
-    csv.writer(open('processed/comprobas_data.csv','w')).writerows([[d] for d in probascoo.data])
-    csv.writer(open('processed/comprobas_rows.csv','w')).writerows([[d] for d in probascoo.row])
-    csv.writer(open('processed/comprobas_cols.csv','w')).writerows([[d] for d in probascoo.col])
+    #print('Saving result')
+    #probascoo = scipy.sparse.coo_matrix(probas)
+    #del probas
+    #csv.writer(open('processed/comprobas_data.csv','w')).writerows([[d] for d in probascoo.data])
+    #csv.writer(open('processed/comprobas_rows.csv','w')).writerows([[d] for d in probascoo.row])
+    #csv.writer(open('processed/comprobas_cols.csv','w')).writerows([[d] for d in probascoo.col])
 
     #proximitycoo = scipy.sparse.coo_matrix(proximity)
     #del proximity
