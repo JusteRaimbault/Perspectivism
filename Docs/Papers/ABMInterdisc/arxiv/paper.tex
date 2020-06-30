@@ -78,9 +78,6 @@ An increased interdisciplinarity in science projects has been highlighted as cru
 % \keyFont{ \section{Keywords:}} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
-to justify distribution overlap: PNM https://scholar.google.com/scholar?hl=fr&as_sdt=0%2C5&q=from+foodweb+network+to+probabilistic+niche+model&btnG=
-
-
 \section{Introduction}
 
 
@@ -125,9 +122,9 @@ Agents are $N$ scientists $A_i$, characterized by a probability distribution $d(
 
 %%%%%%%%%%%%%%%
 \begin{figure*}
-\includegraphics[width=0.49\textwidth]{figures/articlenum_fitDistrPowerLaw.png}
-\includegraphics[width=0.49\textwidth]{figures/interdisciplinarity.png}\\
-\includegraphics[width=0.49\textwidth]{figures/proximity.png}\includegraphics[width=0.49\textwidth]{figures/collabprobas_byarticclenum.png}
+\includegraphics[width=0.49\textwidth]{articlenum_fitDistrPowerLaw.png}
+\includegraphics[width=0.49\textwidth]{interdisciplinarity.png}\\
+\includegraphics[width=0.49\textwidth]{proximity.png}\includegraphics[width=0.49\textwidth]{collabprobas_byarticclenum.png}
 \caption{\textbf{Collaborations and interdisciplinarity within the Arxiv dataset.} \textit{(Top left)} Cumulative distribution function of the number of articles per author (these were disambiguated using first and last name only, statistics may not be accurate). We compare a log-normal and a power-law fit. \textit{(Top right)} Distribution of interdisciplinarity per author, computed as an Herfindhal index of probabilities within endogenous citation communities. \textit{(Bottom left)} Distribution of positive author proximities, defined as cosine similarity between authors probability distribution within citation communities. \textit{(Bottom right)} Distribution of co-authorship probabilities, conditioned by the number of articles.\label{fig:empirical}}
 \end{figure*}
 %%%%%%%%%%%%%%%
@@ -147,13 +144,12 @@ We run a basic grid exploration of the parameter space, both with random and sma
 
 
 
-
 %%%%%%%%%%%%%%%
 \begin{figure*}
 	\centering
-	\includegraphics[width=0.49\linewidth]{figures/depth-sigma_alpha0-5_rho0}
-	\includegraphics[width=0.49\linewidth]{figures/interdisc-sigma_alpha0-5_rho0}\\
-	\includegraphics[width=0.8\linewidth]{figures/pareto_alpha0-5_rho0}
+	\includegraphics[width=0.49\linewidth]{depth-sigma_alpha0-5_rho0}
+	\includegraphics[width=0.49\linewidth]{interdisc-sigma_alpha0-5_rho0}\\
+	\includegraphics[width=0.8\linewidth]{pareto_alpha0-5_rho0}
 	\caption{\textbf{Patterns of interdisciplinarity from model simulations.} We show measures of depth and interdisciplinarity (top row) at fixed $\alpha=0.5$ and network structure, for varying discrete choice parameter $\beta$ as a function of individual extent $\sigma$. On the bottom, the Pareto front of average point between these two objectives.}
 	\label{fig:plots}
 \end{figure*}
