@@ -31,6 +31,8 @@ if task=='--network':
     ##g=Graph([('hep-lat/0004009', 'hep-lat/0002004'), ('hep-lat/0004009', 'hep-lat/9907024'), ('hep-lat/0004009', 'hep-lat/0004002'), ('hep-lat/0004009', 'hep-lat/9907028'), ('hep-lat/0004009', 'hep-lat/9912003')])
     ##print(len(g.vs))
     g.vs["name"] = nodenames
+    print("nodes = "+str(len(nodenames)))
+    print("edges = "+str(len(edgelist)))
 
     # not needed as do not consider distance: full graph
     #largest = g.clusters().giant()
@@ -42,8 +44,10 @@ if task=='--network':
     membership = communities.membership
     membdico = dict(zip(nodenames,membership))
     comsizes = communities.sizes()
-    print(comsizes)
-    print(membership[1:10])
+    print("modularity = "+str(communities.modularity))
+    print("communities larger than 1000 = "+str(len([i for i in range(0,len(comsizes)) if comsizes[i]>1000])))
+    #print(comsizes)
+    #print(membership[1:10])
     pickle.dump(membdico,open('processed/commember.pkl','wb'))
     pickle.dump(comsizes,open('processed/comsizes.pkl','wb'))
 
