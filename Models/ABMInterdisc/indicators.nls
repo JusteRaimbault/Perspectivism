@@ -10,11 +10,11 @@ to indicators:update-indicators
 end
 
 to-report indicators:smoothed-interdisciplinarity
-  report mean sublist historical-interdisciplinarity (max list 0 (length historical-interdisciplinarity - 500)) length historical-interdisciplinarity 
+  report mean sublist historical-interdisciplinarity (max list 0 (length historical-interdisciplinarity - 1000)) length historical-interdisciplinarity 
 end
 
 to-report indicators:smoothed-depth
-  report mean sublist historical-depth (max list 0 (length historical-depth - 500)) length historical-depth
+  report mean sublist historical-depth (max list 0 (length historical-depth - 1000)) length historical-depth
 end
 
 ;;
@@ -34,9 +34,9 @@ end
 
 to-report indicators:social-degree-correlation
   let sclist to-list scientists
-  let x [] let y [] foreach sclist [set x lput [count my-links] of ? x set y lput [interdisc-preference] of ? y]
+  let x [] let y [] foreach sclist [? -> set x lput [count my-links] of ? x set y lput [interdisc-preference] of ? y]
   let mx mean x let my mean y let sx standard-deviation x let sy standard-deviation y
-  report mean list-times-element-wise (map [(? - mx)/ sx] x) (map [(? - my)/ sy] y)
+  report mean list-times-element-wise (map [? -> (? - mx)/ sx] x) (map [? -> (? - my)/ sy] y)
 end
 
 

@@ -13,21 +13,20 @@
 
 %\documentclass[utf8]{frontiersSCNS} % for Science, Engineering and Humanities and Social Sciences articles
 %\documentclass[utf8]{frontiersHLTH} % for Health articles
-%\documentclass[utf8]{frontiersFPHY} % for Physics and Applied Mathematics and Statistics articles
-\documentclass[utf8,11pt]{article}
+\documentclass[utf8]{frontiersFPHY} % for Physics and Applied Mathematics and Statistics articles
 
-%\setcitestyle{square} % for Physics and Applied Mathematics and Statistics articles
+\setcitestyle{square} % for Physics and Applied Mathematics and Statistics articles
 \usepackage{url,hyperref,lineno,microtype,subcaption,amssymb,graphicx}
 \usepackage[onehalfspacing]{setspace}
 
 % ! in template
-%\linenumbers
+\linenumbers
 
 
 % Leave a blank line between paragraphs instead of using \\
 
 
-%\def\keyFont{\fontsize{8}{11}\helveticabold }
+\def\keyFont{\fontsize{8}{11}\helveticabold }
 \def\firstAuthorLast{Raimbault} %use et al only if is more than 1 author
 \def\Authors{Juste Raimbault\,$^{1,2,3,\ast}$}
 % Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
@@ -37,7 +36,7 @@ $^{2}$UPS CNRS 3611 ISC-PIF\\%, CNRS, Paris, France\\
 $^{3}$UMR CNRS 8504 G{\'e}ographie-cit{\'e}s}
 % The Corresponding Author should be marked with an asterisk
 % Provide the exact contact address (this time including street name and city zip code) and email of the corresponding author
-%\def\corrAuthor{CASA, UCL, 90 Tottenham Court Road, London W1T 4TJ, United Kingdom}
+\def\corrAuthor{CASA, UCL, 90 Tottenham Court Road, London W1T 4TJ, United Kingdom}
 
 \def\corrEmail{$^{\ast}$juste.raimbault@polytechnique.edu}
 
@@ -46,24 +45,23 @@ $^{3}$UMR CNRS 8504 G{\'e}ographie-cit{\'e}s}
 
 \begin{document}
 % in template
-%\onecolumn
-%\firstpage{1}
+\onecolumn
+\firstpage{1}
 
-%\title[Agent-based modeling interdisciplinarity]{An agent-based model of interdisciplinary interactions in science} 
-\title{\vspace{-3cm}An agent-based model of interdisciplinary interactions in science} 
+\title[Agent-based modeling interdisciplinarity]{An agent-based model of interdisciplinary interactions in science} 
 
-%\author[\firstAuthorLast ]{
-\author{
+
+\author[\firstAuthorLast ]{
 \Authors\medskip\\
 \Address\medskip\\
 \corrEmail
 } %This field will be automatically populated
-%\address{} %This field will be automatically populated
-%\correspondance{} %This field will be automatically populated
+\address{} %This field will be automatically populated
+\correspondance{} %This field will be automatically populated
 
-%\extraAuth{}% If there are more than 1 corresponding author, comment this line and uncomment the next one.
+\extraAuth{}% If there are more than 1 corresponding author, comment this line and uncomment the next one.
 %\extraAuth{corresponding Author2 \\ Laboratory X2, Institute X2, Department X2, Organization X2, Street X2, City X2 , State XX2 (only USA, Canada and Australia), Zip Code2, X2 Country X2, email2@uni2.edu}
-\date{}
+%\date{}
 
 \maketitle
 
@@ -74,11 +72,11 @@ $^{3}$UMR CNRS 8504 G{\'e}ographie-cit{\'e}s}
 %\section{}
 An increased interdisciplinarity in science projects has been highlighted as crucial to tackle complex real-world challenges, but also as beneficial for the development of disciplines themselves. This paper introduces a parcimonious agent-based model of interdisciplinary relationships in collective entreprises of knowledge discovery, to investigate the impact of scientist-level decisions and preferences on global interdisciplinarity patterns. Under the assumption of simple rules for individual researcher project management, such as trade-offs between invested time overhead and knowledge benefit, model simulations show that individual choices influence the distribution of compromise points between emergent level of disciplinary depth and interdisciplinarity in a non-linear way. Different structures for collaboration networks may also yield various outcomes in terms of global interdisciplinarity. We conclude that independently of the research field, the organization of research, and more particularly the local balancing between vertical and horizontal research, already influences the final positioning of research results and the extent of the knowledge front. This suggests direct applications to research policies with a bottom-up leverage on the interactions between disciplines.
 
-%\tiny
-% \keyFont{ \section{Keywords:}} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
+\tiny
+\keyFont{ \section{Keywords: Interdisciplinarity; Agent-based modeling; Scientific collaborations; Model exploration; Model calibration}} %All article types: you may provide up to 8 keywords; at least 5 are mandatory.
 \end{abstract}
 
-to justify distribution overlap: PNM https://scholar.google.com/scholar?hl=fr&as_sdt=0%2C5&q=from+foodweb+network+to+probabilistic+niche+model&btnG=
+%to justify distribution overlap: PNM https://scholar.google.com/scholar?hl=fr&as_sdt=0%2C5&q=from+foodweb+network+to+probabilistic+niche+model&btnG=
 
 
 \section{Introduction}
@@ -102,25 +100,8 @@ Various works have dealt with microscopic modeling of knowledge production, amon
 
 
 
-\section{An agent-based Model of Interdisciplinarity}
-
-\subsection{Rationale}
-
-Many dimensions and processes are at play to shape collaborations between scientists and more broadly between scientific disciplines. These include for example social networks, governance and funding issues, or knowledge proximity (which can occur on various knowledge domains, from methodological to empirical or theoretical). Our rationale is to propose an agent-based model grasping some of this complexity from the bottom-up focusing on scientist behavior, but simple enough so that it can be systematically explored. We include thus in the model two basic antagonist processes, namely a propensity to collaborate mostly determined by knowledge proximity, and some resources constraints (time, funding) which affect negatively the possibility to collaborate. Working with scientists outside one's field has indeed a high cost, from finding common ground and research questions to an possible construction of integrated knowledge \cite{frodeman2013sustainable}.
-
-
-\subsection{Model description}
-
-Agents are $N$ scientists $A_i$, characterized by a probability distribution $d(x)$ representing their disciplinary positioning in an abstract way: research is summarized by a one dimensional variable $\mathbb{R}$, and the disciplinary positioning on this axis is given by the distribution. The model is setup with normal distributions of width $\sigma$ with an average distributed uniformly in $\left[0;1\right]$. Scientists also have a time budget per day, that we will summarize as a future timetable $T(t_0):t>t_0 \mapsto p(t) \in \mathcal{P}$ where $\mathcal{P}$ is the space of scientific projects. The central feature of the model is the utility function $U(d_i,d_j)$ determining an abstract utility for scientist $i$ to collaborate with $j$ for a given project. It will be a function of the disciplinary overlap $o = \int_x d_i(x)\cdot d_j(x) dx$ and different assumptions on the form of this cost function can be tested. We take a linear cost in the overlap and a varying benefit, expressing the fact that researchers have different strategies regarding their interdisciplinary positioning. This way, we have $U(d_i,d_j) = o / i^\alpha - o$, assuming a fat-tail distribution of individual preferences for interdisciplinarity, given by a power law of parameter $\alpha$. A discrete choice formulation gives the probabilities for a scientist $i$ to choose among $j$ collaborators by $p_j = \exp\left(\beta U(d_i,d_j) \right)/\sum_k \exp\left(\beta U(d_i,d_k) \right)$. Given a social network of relations, that we take for now as a fixed scale-free social network, the temporal evolution of the model goes as follows: (i) one scientist with no current activity is picked up at random, and starts a project with one of its potential collaborators taken as its neighbors in the network that have free time, chosen with the probability $p_j$. The project has a random uniform duration and timetables are updated accordingly; (ii) current projects are updated and finished if necessary. The outcome of the model if measured by average depth across project, defined for one project as the overlapping areas between distribution, and average interdisciplinarity measured by total area covered.
-
-
-\section{Results}
-
-\subsection{Empirical data}
-
-% arxiv https://arxiv.org/help/bulk_data
-%https://arxiv.org/pdf/1905.00075.pdf % citation network dataset
-%https://github.com/mattbierbaum/arxiv-public-datasets/releases
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{An empirical analysis of interdisciplinarity patterns}
 
 
 %%%%%%%%%%%%%%%
@@ -133,19 +114,45 @@ Agents are $N$ scientists $A_i$, characterized by a probability distribution $d(
 %%%%%%%%%%%%%%%
 
 
-In order to give empirical support to the modeling choices for the ABM, we first study the properties of a large scientific corpus. We propose to use the Arxiv citation network, which represents a significant proportion of physics and computer science. An open dataset providing parsed authors and citations is made available by \cite{clement2019use}. This allows constructing a citation network with $\left|V\right| = 1,396,261$ nodes (papers) and $\left|E\right| = 6,849,633$ citation links. This corresponds to $1,506,500$ unique authors which we disambiguated by concatenating first name and last name. We then proceed to a community detection in the citation network, using a Louvain community detection algorithm. We obtain therein a modularity of $0.78$ and 38 communities with a size larger than 1000. Working with these main endogenous citation communities (which can be interpreted as scientific fields of citation practice), we construct probabilities for authors to belong to each community. These are computed as $p_{ik} = N_{ik} / N_{i}$ for author $i$ and community $k$, were $N_{ik}$ is the number of articles authored within this community and $N_i$ the total number of articles authored. This allows computing a cosine proximity between authors defined as $s_{ij} = \vec{p}_i \cdot \vec{p}_j$, and also an interdisciplinarity measure as an Herfindhal diversity index given by $h_i = 1 = \sum_k p_{ik}^2$. Finally, we also study co-authorship probabilities $c_{i \rightarrow j}$ defined as the probability for author $i$ to co-author with author $j$ knowing that the author has written a paper (the matrix is thus non symmetric).
+In order to give empirical support to the modeling choices for the ABM, we first study the properties of a large scientific corpus. We propose to use the Arxiv citation network, which represents a significant proportion of physics and computer science. An open dataset providing parsed authors and citations is made available by \cite{clement2019use}. This allows constructing a citation network with $\left|V\right| = 1,396,261$ nodes (papers) and $\left|E\right| = 6,849,633$ citation links. This corresponds to $1,506,500$ unique authors which we disambiguated by concatenating first name and last name.
+
+We measure interdisciplinarity following the approach of \cite{raimbault2019exploration}. Therefore, we construct endogenous disciplines within the citation network, and thus proceed to a community detection in the citation network, using a Louvain community detection algorithm. We obtain therein a modularity of $0.78$ and 38 communities with a size larger than 1000. Working with these main endogenous citation communities (which can be interpreted as scientific fields of citation practice), we construct probabilities for authors to belong to each community. These are computed as $p_{ik} = N_{ik} / N_{i}$ for author $i$ and community $k$, were $N_{ik}$ is the number of articles authored within this community and $N_i$ the total number of articles authored. This allows computing a cosine proximity between authors defined as $s_{ij} = \vec{p}_i \cdot \vec{p}_j$, and also an interdisciplinarity measure as an Herfindhal diversity index given by $h_i = 1 = \sum_k p_{ik}^2$. Finally, we also study co-authorship probabilities $c_{i \rightarrow j}$ defined as the probability for author $i$ to co-author with author $j$ knowing that the author has written a paper (the matrix is thus non symmetric).
 
 We show in Figure~\ref{fig:empirical} the empirical results obtained. The number of papers by author is close to a power-law with an exponent of 2.82, although a log-normal law seems to better fit the data. Regarding interdisciplinarity of authors, although a large majority of authors are mono-disciplinary, we find a secondary peak at 0.5 and a non negligible proportion of authors spanning the indicator range up to very high values of 0.8. This confirms the relevance of our model with an active interdisciplinarity. When studying cosine similarity between authors using their probabilistic description within communities, we find a broad range of values, also witnessing a high diversity (knowing that most authors are at a 0 proximity, since the plot is conditional for readability). Co-authorship probabilities follow rather symmetrical distributions with fat tails on a log-scale, consistently when conditioning on the number of papers authored. This is consistent with the power-law assumed for the propensity for interdisciplinarity for authors.
 
 
 
-\subsection{Model exploration}
 
-The model is implemented in NetLogo \cite{tisue2004netlogo} and explored with OpenMole \cite{reuillon2013openmole}. Source code and results are available on the open git repository of the project at \url{https://github.com/JusteRaimbault/Perspectivism}. Data used in the paper is available on the dataverse at \url{https://doi.org/10.7910/DVN/GMQ5A8}.
+
+
+
+\section{An agent-based Model of Interdisciplinarity}
+
+\subsection{Rationale}
+
+Many dimensions and processes are at play to shape collaborations between scientists and more broadly between scientific disciplines. These include for example social networks, governance and funding issues, or knowledge proximity (which can occur on various knowledge domains, from methodological to empirical or theoretical). Our rationale is to propose an agent-based model grasping some of this complexity from the bottom-up focusing on scientist behavior, but simple enough so that it can be systematically explored. We include thus in the model two basic antagonist processes, namely a propensity to collaborate mostly determined by knowledge proximity, and some resources constraints (time, funding) which affect negatively the possibility to collaborate. Working with scientists outside one's field has indeed a high cost, from finding common ground and research questions to a possible construction of integrated knowledge \cite{frodeman2013sustainable}.
+
+To determine the propensity to collaborate, we follow the heuristic of the Probabilistic Niche Model (PNM) used in ecology to determine trophic interactions between species \cite{williams2010probabilistic}. This approach was successfully used in a social science model by \cite{raimbault2020spatial}.
+
+
+\subsection{Model description}
+
+Agents are $N$ scientists $A_i$, characterized by a probability distribution $d(x)$ representing their disciplinary positioning in an abstract way: research is summarized by a one dimensional variable $\mathbb{R}$, and the disciplinary positioning on this axis is given by the distribution. The model is setup with normal distributions of width $\sigma$ with an average distributed uniformly in $\left[0;1\right]$. Scientists also have a time budget per day, that we will summarize as a future timetable $T(t_0):t>t_0 \mapsto p(t) \in \mathcal{P}$ where $\mathcal{P}$ is the space of scientific projects. The central feature of the model is the utility function $U(d_i,d_j)$ determining an abstract utility for scientist $i$ to collaborate with $j$ for a given project. It will be a function of the disciplinary overlap $o = \int_x d_i(x)\cdot d_j(x) dx$ and different assumptions on the form of this cost function can be tested. We take a linear cost in the overlap and a varying benefit, expressing the fact that researchers have different strategies regarding their interdisciplinary positioning. This way, we have $U(d_i,d_j) = o / i^\alpha - o$, assuming a fat-tail distribution of individual preferences for interdisciplinarity, given by a power law of parameter $\alpha$. A discrete choice formulation gives the probabilities for a scientist $i$ to choose among $j$ collaborators by $p_j = \exp\left(\beta U(d_i,d_j) \right)/\sum_k \exp\left(\beta U(d_i,d_k) \right)$. Given a social network of relations, that we take for now as a fixed scale-free social network, the temporal evolution of the model goes as follows: (i) one scientist with no current activity is picked up at random, and starts a project with one of its potential collaborators taken as its neighbors in the network that have free time, chosen with the probability $p_j$. The project has a random uniform duration and timetables are updated accordingly; (ii) current projects are updated and finished if necessary. The outcome of the model if measured by average depth across project, defined for one project as the overlapping areas between distribution, and average interdisciplinarity measured by total area covered.
+
+
+\section{Results}
+
+
+The model is implemented in NetLogo \cite{tisue2004netlogo} and explored with the OpenMole model exploration software \cite{reuillon2013openmole}. Source code and results are available on the open git repository of the project at \url{https://github.com/JusteRaimbault/Perspectivism}. Processed empirical data and simulation data used in the paper are available on the dataverse repository at \url{https://doi.org/10.7910/DVN/GMQ5A8}.
+
+
+\subsection{Stochasticity of model outputs}
+
+
+
+\subsection{Grid exploration}
 
 We run a basic grid exploration of the parameter space, both with random and small-world social networks, for parameters $\alpha,\beta,\sigma$ with 50 repetitions of the model for each parameter points, corresponding to 158,400 model runs. Figure~\ref{fig:plots} shows indicators variation on a given subspace and the corresponding Pareto front between depth and interdisciplinarity. We show a second order influence of preference hierarchy $\alpha$ and non-linearity of model behavior as a function of all parameters. Convergence properties are reasonable with this number of repetitions. Large individual disciplinary width $\sigma$ causes the choice parameter $\beta$ to have no influence, whereas low values give an increasing interdisciplinarity and a decreasing depth as a function of $\beta$. Random behavior ($\beta = 0$) leads to a constant depth of projects. When examining the Pareto front between the two contrary objectives, the optimal points occur for intermediate $\beta$ when $\sigma$ is fixed, suggesting non-trivial behavioral optima at a fixed disciplinary configuration. These first exploration show the complex dynamics of interdisciplinarity even with simple interaction rules and network structure, and suggests further applications such as the exploration of policies by changing network structure or studying in a more refined way the influence of $\alpha$. Preliminary non-systematic model experiments, in particular changing the type of network structure, suggest that it may also have significant effect on model outcomes.
-
-
 
 
 %%%%%%%%%%%%%%%
@@ -160,9 +167,31 @@ We run a basic grid exploration of the parameter space, both with random and sma
 %%%%%%%%%%%%%%%
 
 
+\subsection{Global sensitivity analysis}
+
+
+
+\subsection{Model optimization}
+
+
+
+\subsection{Model calibration}
+
+
+
+
+
 
 
 \section{Discussion}
+
+
+\subsection{Implications of results}
+
+
+\subsection{Model limitations and possible extensions}
+
+Possible refinements of the model, towards a less stylized and more behavioral and micro-based model, could for example include the introduction of time budgets, simultaneous projects and dynamical time investment for scientists. The assumption of two-person projects is also strongly constraining, and relaxing it would require the extension of depth and interdisciplinarity measures that is not necessary straightforward. Furthermore, the absence of learning and of evolution of the social network when completing a project suggests a short time scale of application: further refinements should include dynamics of individual distributions and of individual relationships.
 
 
 \subsection{Perspectivism and Model Coupling}
@@ -176,9 +205,7 @@ We postulate that this approach to science may be a powerful tool to foster inte
 This work aimed at providing quantitative evidence of the feasibility of the epistemological point of view described above and inform potential implementation for some of its processes, more precisely how can certain level of coupling of perspectives (or overlap of ontologies) may be achieved given specializations of scientists and a given dynamic of interaction.
 
 
-\subsection{Possible extensions}
 
-Possible refinements of the model, towards a less stylized and more behavioral and micro-based model, could for example include the introduction of time budgets, simultaneous projects and dynamical time investment for scientists. The assumption of two-person projects is also strongly constraining, and relaxing it would require the extension of depth and interdisciplinarity measures that is not necessary straightforward. Furthermore, the absence of learning and of evolution of the social network when completing a project suggests a short time scale of application: further refinements should include dynamics of individual distributions and of individual relationships.
 
 
 \section{Conclusion}
@@ -189,226 +216,35 @@ In conclusion, we show with a simple model that the individual choices produce a
 
 
 
-%\section*{Conflict of Interest Statement}
+\section*{Conflict of Interest Statement}
 %All financial, commercial or other relationships that might be perceived by the academic community as representing a potential conflict of interest must be disclosed. If no such relationship exists, authors will be asked to confirm the following statement: 
 
-%The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
+The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
 
-%\section*{Author Contributions}
+\section*{Author Contributions}
 
-%JR designed the study, coded the model, conducted the experiments, and wrote the paper.
+JR designed the study, coded the model, conducted the experiments, and wrote the paper.
 
-%\section*{Funding}
+\section*{Funding}
 
+The authors acknowledge the funding of the EPSRC project number EP/M023583/1.
 
-%\section*{Acknowledgments}
+\section*{Acknowledgments}
 
+Results obtained in this paper were computed on the vo.complex-system.eu virtual organization of the European Grid Infrastructure (http://www.egi.eu). We thank the European Grid Infrastructure and its supporting National Grid Initiatives (France-Grilles in particular) for providing the technical support and infrastructure.
 
 %\section*{Supplemental Data}
 
 
-%\section*{Data Availability Statement}
+\section*{Data Availability Statement}
 
-%The datasets [GENERATED/ANALYZED] for this study can be found in the [NAME OF REPOSITORY] [LINK].
+The datasets analyzed and generated for this study can be found in the dataverse repository at \url{https://doi.org/10.7910/DVN/GMQ5A8}.
 
 
 %\bibliographystyle{frontiersinSCNS_ENG_HUMS} % for Science, Engineering and Humanities and Social Sciences articles, for Humanities and Social Sciences articles please include page numbers in the in-text citations
-%\bibliographystyle{frontiersinHLTH&FPHY} % for Health, Physics and Mathematics articles
+\bibliographystyle{frontiersinHLTH&FPHY} % for Health, Physics and Mathematics articles
 %\bibliographystyle{apalike}
-%\bibliography{biblio.bib}
-\begin{thebibliography}{}
-
-\bibitem[Akerlof and Michaillat, 2018]{akerlof2018persistence}
-Akerlof, G.~A. and Michaillat, P. (2018).
-\newblock Persistence of false paradigms in low-power sciences.
-\newblock {\em Proceedings of the National Academy of Sciences},
-  115(52):13228--13233.
-
-\bibitem[Banos, 2013]{banos2013pour}
-Banos, A. (2013).
-\newblock {\em Pour des pratiques de mod{\'e}lisation et de simulation
-  lib{\'e}r{\'e}es en g{\'e}ographie et SHS}.
-\newblock PhD thesis.
-
-\bibitem[Banos, 2017]{banos2017knowledge}
-Banos, A. (2017).
-\newblock Knowledge accelerator’in geography and social sciences: Further and
-  faster, but also deeper and wider.
-\newblock {\em Urban Dynamics and Simulation Models}, pages 119--123.
-
-\bibitem[Bornmann et~al., 2020]{doi10.1162qssa00008}
-Bornmann, L., Ganser, C., Tekles, A., and Leydesdorff, L. (2020).
-\newblock Does the h-index reinforce the matthew effect in science? the
-  introduction of agent-based simulations into scientometrics.
-\newblock {\em Quantitative Science Studies}, 1(1):331--346.
-
-\bibitem[Brown et~al., 2020]{brown_murray_furlong_coco_dablander_2020}
-Brown, J., Murray, D., Furlong, K., Coco, E., and Dablander, F. (2020).
-\newblock A breeding pool of ideas: Analyzing interdisciplinary collaborations
-  at the complex systems summer school.
-
-\bibitem[Chavalarias, 2016]{chavalarias2016s}
-Chavalarias, D. (2016).
-\newblock What's wrong with science?
-\newblock {\em Scientometrics}, pages 1--23.
-
-\bibitem[Clement et~al., 2019]{clement2019use}
-Clement, C.~B., Bierbaum, M., O'Keeffe, K.~P., and Alemi, A.~A. (2019).
-\newblock On the use of arxiv as a dataset.
-
-\bibitem[Dionne et~al., 2019]{dionne2019diversity}
-Dionne, S.~D., Sayama, H., and Yammarino, F.~J. (2019).
-\newblock Diversity and social network structure in collective decision making:
-  Evolutionary perspectives with agent-based simulations.
-\newblock {\em Complexity}, 2019.
-
-\bibitem[Ellemers et~al., 2020]{Ellemers7561}
-Ellemers, N., Fiske, S.~T., Abele, A.~E., Koch, A., and Yzerbyt, V. (2020).
-\newblock Adversarial alignment enables competing models to engage in
-  cooperative theory building toward cumulative science.
-\newblock {\em Proceedings of the National Academy of Sciences},
-  117(14):7561--7567.
-
-\bibitem[Feliciani et~al., 2019]{feliciani2019scoping}
-Feliciani, T., Luo, J., Ma, L., Lucas, P., Squazzoni, F., Maruvsic, A., and
-  Shankar, K. (2019).
-\newblock A scoping review of simulation models of peer review.
-\newblock {\em Scientometrics}, 121(1):555--594.
-
-\bibitem[Frodeman, 2013]{frodeman2013sustainable}
-Frodeman, R. (2013).
-\newblock {\em Sustainable knowledge: A theory of interdisciplinarity}.
-\newblock Springer.
-
-\bibitem[Giere, 2010a]{giere2010agent}
-Giere, R.~N. (2010a).
-\newblock An agent-based conception of models and scientific representation.
-\newblock {\em Synthese}, 172(2):269--281.
-
-\bibitem[Giere, 2010b]{giere2010scientific}
-Giere, R.~N. (2010b).
-\newblock {\em Scientific perspectivism}.
-\newblock University of Chicago Press.
-
-\bibitem[Gross and Bergstrom, 2019]{gross2019contest}
-Gross, K. and Bergstrom, C.~T. (2019).
-\newblock Contest models highlight inherent inefficiencies of scientific
-  funding competitions.
-\newblock {\em PLoS biology}, 17(1).
-
-\bibitem[Hofstra et~al., 2020]{Hofstra9284}
-Hofstra, B., Kulkarni, V.~V., Munoz-Najar~Galvez, S., He, B., Jurafsky, D., and
-  McFarland, D.~A. (2020).
-\newblock The diversity{\textendash}innovation paradox in science.
-\newblock {\em Proceedings of the National Academy of Sciences},
-  117(17):9284--9291.
-
-\bibitem[Jang et~al., 2019]{jang2019coevolutionary}
-Jang, J., Ju, X., Ryu, U., and Om, H. (2019).
-\newblock Coevolutionary characteristics of knowledge diffusion and knowledge
-  network structures: A ga-abm model.
-\newblock {\em Journal of Artificial Societies \& Social Simulation}, 22(3).
-
-\bibitem[Kovanis et~al., 2016]{kovanis2016complex}
-Kovanis, M., Porcher, R., Ravaud, P., and Trinquart, L. (2016).
-\newblock Complex systems approach to scientific publication and peer-review
-  system: development of an agent-based model calibrated with empirical journal
-  data.
-\newblock {\em Scientometrics}, 106(2):695--715.
-
-\bibitem[Larivi{\`e}re and Gingras, 2010]{lariviere2010relationship}
-Larivi{\`e}re, V. and Gingras, Y. (2010).
-\newblock On the relationship between interdisciplinarity and scientific
-  impact.
-\newblock {\em Journal of the Association for Information Science and
-  Technology}, 61(1):126--131.
-
-\bibitem[Leydesdorff and Ivanova, 2020]{leydesdorff2020measurement}
-Leydesdorff, L. and Ivanova, I. (2020).
-\newblock The measurement of “interdisciplinarity” and “synergy” in
-  scientific and extra-scientific collaborations.
-\newblock {\em Available at SSRN}.
-
-\bibitem[Livet et~al., 2010]{livet2010ontology}
-Livet, P., M{\"u}ller, J.~P., Phan, D., Sanders, L., and Auatabu, T. (2010).
-\newblock Ontology, a mediator for agent-based modeling in social science.
-\newblock {\em Journal of Artificial Societies and Social Simulation}, 13(1).
-
-\bibitem[Pavlidis et~al., 2014]{pavlidis2014together}
-Pavlidis, I., Petersen, A.~M., and Semendeferi, I. (2014).
-\newblock Together we stand.
-\newblock {\em Nature Physics}, 10(10):700.
-
-\bibitem[Pluchino et~al., 2019]{pluchino2019exploring}
-Pluchino, A., Burgio, G., Rapisarda, A., Biondo, A.~E., Pulvirenti, A., Ferro,
-  A., and Giorgino, T. (2019).
-\newblock Exploring the role of interdisciplinarity in physics: Success, talent
-  and luck.
-\newblock {\em PloS one}, 14(6).
-
-\bibitem[Raimbault, 2017]{raimbault2017knowledge}
-Raimbault, J. (2017).
-\newblock An applied knowledge framework to study complex systems.
-\newblock {\em Forthcoming in CSDM2017 proceedings. arXiv:1706.09244 at
-  https://arxiv.org/abs/1706.09244}.
-
-\bibitem[Reuillon et~al., 2013]{reuillon2013openmole}
-Reuillon, R., Leclaire, M., and Rey-Coyrehourcq, S. (2013).
-\newblock Openmole, a workflow engine specifically tailored for the distributed
-  exploration of simulation models.
-\newblock {\em Future Generation Computer Systems}, 29(8):1981--1990.
-
-\bibitem[Rouse et~al., 2018]{rouse2018modeling}
-Rouse, W.~B., Lombardi, J.~V., and Craig, D.~D. (2018).
-\newblock Modeling research universities: Predicting probable futures of public
-  vs. private and large vs. small research universities.
-\newblock {\em Proceedings of the National Academy of Sciences},
-  115(50):12582--12589.
-
-\bibitem[Shafiee and Berglund, 2019]{shafiee2019agent}
-Shafiee, M.~E. and Berglund, E.~Z. (2019).
-\newblock Agent-based modelling approach to evaluate the effect of
-  collaboration among scientists in scientific workflows.
-\newblock {\em Journal of Simulation}, 13(1):1--13.
-
-\bibitem[Shneiderman, 2018]{shneiderman2018twin}
-Shneiderman, B. (2018).
-\newblock Twin-win model: A human-centered approach to research success.
-\newblock {\em Proceedings of the National Academy of Sciences},
-  115(50):12590--12594.
-
-\bibitem[{Thurner} et~al., 2019]{2019arXiv191003628T}
-{Thurner}, S., {Liu}, W., {Klimek}, P., and {Cheong}, S.~A. (2019).
-\newblock {The role of mainstreamness and interdisciplinarity for the relevance
-  of scientific papers}.
-\newblock {\em arXiv e-prints}, page arXiv:1910.03628.
-
-\bibitem[Tisue and Wilensky, 2004]{tisue2004netlogo}
-Tisue, S. and Wilensky, U. (2004).
-\newblock Netlogo: A simple environment for modeling complexity.
-\newblock In {\em International conference on complex systems}, volume~21,
-  pages 16--21. Boston, MA.
-
-\bibitem[Urbanska et~al., 2019]{urbanska2019does}
-Urbanska, K., Huet, S., and Guimond, S. (2019).
-\newblock Does increased interdisciplinary contact among hard and social
-  scientists help or hinder interdisciplinary research?
-\newblock {\em PloS one}, 14(9).
-
-\bibitem[van Vlokhoven, 2019]{VANVLOKHOVEN2019751}
-van Vlokhoven, H. (2019).
-\newblock The effect of open access on research quality.
-\newblock {\em Journal of Informetrics}, 13(2):751 -- 756.
-
-\bibitem[Zeng et~al., 2019]{zeng2019increasing}
-Zeng, A., Shen, Z., Zhou, J., Fan, Y., Di, Z., Wang, Y., Stanley, H.~E., and
-  Havlin, S. (2019).
-\newblock Increasing trend of scientists to switch between topics.
-\newblock {\em Nature communications}, 10(1):1--11.
-
-\end{thebibliography}
-
-
+\bibliography{biblio.bib}
 
 %%% Make sure to upload the bib file along with the tex file and PDF
 %%% Please see the test.bib file for some examples of references
