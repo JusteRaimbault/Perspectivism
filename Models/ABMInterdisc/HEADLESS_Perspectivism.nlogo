@@ -36,6 +36,7 @@ globals [
   social-interdisc-correlation
   sigma-discipline
   interdisc-preference-hierarchy
+  entry-cost-hierarchy
   beta-dc
 
 ]

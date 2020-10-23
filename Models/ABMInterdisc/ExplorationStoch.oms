@@ -44,15 +44,20 @@ val env = EGIEnvironment("vo.complex-systems.eu")
 val exploration = DirectSampling(
   //evaluation = (model on env hook indics_hook),
   evaluation = (model on env by 50 hook indics_hook),
-  sampling = 
-  (((nwMode in Seq("random","small-world")) x
-    (nwCorrelation in (0.0 to 1.0 by 0.5)) x
+  sampling = ((LHS(50,
+    nwCorrelation in Range(0.0,1.0),
+    sigmaDiscipline in Range(0.01,0.3),
+    alphaPreference in Range(0.0,5.0),
+    entryCostHierarchy in Range(0.0,5.0),
+    betaDC in Range(0.0,5.0)
+  ) x (nwMode in Seq("small-world","random"))) withIndex id)
+  /*(((nwMode in Seq("random","small-world")) x
+    (nwCorrelation in (0.0 to 1.0 by 0.2)) x
     (sigmaDiscipline in (0.05 to 0.3 by 0.05)) x
-    (alphaPreference in (0.5 to 1.5 by 0.5)) x
-    (entryCostHierarchy in (0.5 to 1.5 by 0.5)) x
-    (betaDC in (0.0 to 5.0 by 1.0))
-  ) withIndex id)
-  x (replication in (UniformDistribution[Int]() take 100))
+    (alphaPreference in (0.5 to 2.0 by 0.5)) x
+    (betaDC in (0.0 to 5.0 by 0.5))
+  ) withIndex id)*/
+  x (replication in (UniformDistribution[Int]() take 1000))//50))
 )
 
 exploration

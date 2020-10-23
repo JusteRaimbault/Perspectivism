@@ -1,0 +1,63 @@
+
+// Parameters
+val nwMode = Val[String]
+val nwCorrelation = Val[Double]
+val sigmaDiscipline = Val[Double]
+val alphaPreference = Val[Double]
+val entryCostHierarchy = Val[Double]
+val betaDC = Val[Double]
+val finalTime = Val[Int]
+
+val id = Val[Int]
+val replication = Val[Int]
+
+// Indicators
+val interdisciplinarity = Val[Double]
+val depth = Val[Double]
+val nwEffectiveCorr = Val[Double]
+val maxDegree = Val[Double]
+
+
+// setup-experiment [nw-mode nw-correlation sigma alpha-pref beta tf seed]
+val cmds = List("setup-experiment \"${nwMode}\" ${nwCorrelation} ${sigmaDiscipline} ${alphaPreference} ${entryCostHierarchy} ${betaDC} ${finalTime} ${replication}","run-experiment")
+
+val model = NetLogo6Task(workDirectory / "HEADLESS_Perspectivism.nlogo",cmds,embedWorkspace = true,reuseWorkspace = true) set (
+  inputs += (nwMode,nwCorrelation,sigmaDiscipline,alphaPreference,entryCostHierarchy,betaDC,finalTime,replication),
+  outputs += (nwMode,nwCorrelation,sigmaDiscipline,alphaPreference,entryCostHierarchy,betaDC,finalTime,replication),
+  netLogoOutputs += ("indicators:smoothed-interdisciplinarity", interdisciplinarity),
+  netLogoOutputs += ("indicators:smoothed-depth", depth),
+  finalTime := 2000,
+  nwMode := "small-world"
+)
+
+val purpose = "OPTIMISATION_GRID"
+//val purpose = "TEST"
+
+val datestr = ((new java.text.SimpleDateFormat("yyyyMMdd_HHmmss")).format(new java.util.Date())).toString
+val resdir = purpose+"_"+datestr
+
+//val env = LocalEnvironment(5)
+val env = EGIEnvironment("vo.complex-systems.eu")
+
+
+val evolution = NSGA2Evolution(
+    genome =
+      Seq(
+        nwCorrelation in (0.0,1.0),
+        sigmaDiscipline in (0.01,0.5),
+        alphaPreference in (0.0,5.0),
+        entryCostHierarchy in (0.0,5.0),
+        betaDC in (0.0,5.0)
+      ),
+      mu = 200,
+      objective = Seq(- depth,- interdisciplinarity),
+      evaluation = model,
+      stochastic = Stochastic(seed = replication),
+      termination = 10000,
+      parallelism = 200,
+      distribution = Island(15 minutes)
+) hook (workDirectory / "optimisation" / resdir,1000)
+
+
+(evolution on env)
+
