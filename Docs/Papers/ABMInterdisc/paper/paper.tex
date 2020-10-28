@@ -137,7 +137,15 @@ To determine the propensity to collaborate, we follow the heuristic of the Proba
 
 \subsection{Model description}
 
-Agents are $N$ scientists $A_i$, characterized by a probability distribution $d(x)$ representing their disciplinary positioning in an abstract way: research is summarized by a one dimensional variable $\mathbb{R}$, and the disciplinary positioning on this axis is given by the distribution. The model is setup with normal distributions of width $\sigma$ with an average distributed uniformly in $\left[0;1\right]$. Scientists also have a time budget per day, that we will summarize as a future timetable $T(t_0):t>t_0 \mapsto p(t) \in \mathcal{P}$ where $\mathcal{P}$ is the space of scientific projects. The central feature of the model is the utility function $U(d_i,d_j)$ determining an abstract utility for scientist $i$ to collaborate with $j$ for a given project. It will be a function of the disciplinary overlap $o = \int_x d_i(x)\cdot d_j(x) dx$ and different assumptions on the form of this cost function can be tested. We take a linear cost in the overlap and a varying benefit, expressing the fact that researchers have different strategies regarding their interdisciplinary positioning. This way, we have $U(d_i,d_j) = o / i^\alpha - o$, assuming a fat-tail distribution of individual preferences for interdisciplinarity, given by a power law of parameter $\alpha$. A discrete choice formulation gives the probabilities for a scientist $i$ to choose among $j$ collaborators by $p_j = \exp\left(\beta U(d_i,d_j) \right)/\sum_k \exp\left(\beta U(d_i,d_k) \right)$. Given a social network of relations, that we take for now as a fixed scale-free social network, the temporal evolution of the model goes as follows: (i) one scientist with no current activity is picked up at random, and starts a project with one of its potential collaborators taken as its neighbors in the network that have free time, chosen with the probability $p_j$. The project has a random uniform duration and timetables are updated accordingly; (ii) current projects are updated and finished if necessary. The outcome of the model if measured by average depth across project, defined for one project as the overlapping areas between distribution, and average interdisciplinarity measured by total area covered.
+Agents are $N$ scientists $A_i$, characterized by a probability distribution $d(x)$ representing their disciplinary positioning in an abstract way: research is summarized by a one dimensional variable $\mathbb{R}$, and the disciplinary positioning on this axis is given by the distribution. The model is setup with normal distributions of width $\sigma$ with an average distributed uniformly in $\left[0;1\right]$. Scientists also have a time budget per day, that we will summarize as a future timetable $T(t_0):t>t_0 \mapsto p(t) \in \mathcal{P}$ where $\mathcal{P}$ is the space of scientific projects. The central feature of the model is the utility function $U(d_i,d_j)$ determining an abstract utility for scientist $i$ to collaborate with $j$ for a given project. It will be a function of the disciplinary overlap $o = \int_x d_i(x)\cdot d_j(x) dx$ and different assumptions on the form of this cost function can be tested. We take a linear cost in the overlap and a varying benefit, expressing the fact that researchers have different strategies regarding their interdisciplinary positioning. This way, we have $U(d_i,d_j) = o / i^\alpha - o$, assuming a fat-tail distribution of individual preferences for interdisciplinarity, given by a power law of parameter $\alpha$. A discrete choice formulation gives the probabilities for a scientist $i$ to choose among $j$ collaborators by 
+
+\begin{equation}
+p_j = \exp\left(\beta U(d_i,d_j) \right)/\sum_k \exp\left(\beta U(d_i,d_k) \right)
+\end{equation}
+
+The social network of relations between scientists can be initialized with the following options: as a fixed scale-free social network, with a correlation parameter $\rho$
+
+The temporal evolution of the model goes as follows: (i) one scientist with no current activity is picked up at random, and starts a project with one of its potential collaborators taken as its neighbors in the network that have free time, chosen with the probability $p_j$. The project has a random uniform duration and timetables are updated accordingly; (ii) current projects are updated and finished if necessary. The outcome of the model if measured by average depth across project, defined for one project as the overlapping areas between distribution, and average interdisciplinarity measured by total area covered.
 
 
 \section{Results}
@@ -145,8 +153,27 @@ Agents are $N$ scientists $A_i$, characterized by a probability distribution $d(
 
 The model is implemented in NetLogo \cite{tisue2004netlogo} and explored with the OpenMole model exploration software \cite{reuillon2013openmole}. Source code and results are available on the open git repository of the project at \url{https://github.com/JusteRaimbault/Perspectivism}. Processed empirical data and simulation data used in the paper are available on the dataverse repository at \url{https://doi.org/10.7910/DVN/GMQ5A8}.
 
+The parameter space explored corresponds to $\alpha,\beta,\sigma,\rho$.
+We fix the number of agents to $N=100$.
 
 \subsection{Stochasticity of model outputs}
+
+A first numerical experiment is conducted to assess the stochasticity of model outputs, and how much repetitions are needed for a robust estimation. We randomly sample 100 points in the parameter space with a Latin Hypercube Sampling, and run 500 repetitions of the model for each point. 
+
+The Sharpe ratio (absolute average relative to standard deviation) estimated for each parameter point has for the depth indicator a minimal value of 3.81 and a median of 18.55. For this indicator, even when noise is at his highest value, the average indicator value is 4 times larger. For the interdisciplinarity indicator, minimum is at 61.02, which means that noise is negligible for this output.
+
+% summary(reldistance("depth","depthSd"))
+%   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+% 0.0000  0.2488  0.7377  1.2066  1.7947  6.1499 
+% summary(reldistance("interdisciplinarity","interdisciplinaritySd"))
+%   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+%  0.000   3.848   8.551  10.396  15.196  43.022
+
+\subsection{Global sensitivity analysis}
+
+% include number of agents in GSA -> ok for other experiments if not sensitive to it (should not)
+
+To summarize the influence of model parameters on outputs, we proceed to a Global Sensitivity Analysis as introduced by \cite{}
 
 
 
@@ -167,7 +194,6 @@ We run a basic grid exploration of the parameter space, both with random and sma
 %%%%%%%%%%%%%%%
 
 
-\subsection{Global sensitivity analysis}
 
 
 

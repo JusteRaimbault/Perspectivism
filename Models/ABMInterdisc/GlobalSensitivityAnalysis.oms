@@ -1,4 +1,3 @@
-
 // Parameters
 val nwMode = Val[String]
 val nwCorrelation = Val[Double]
@@ -7,6 +6,7 @@ val alphaPreference = Val[Double]
 val entryCostHierarchy = Val[Double]
 val betaDC = Val[Double]
 val finalTime = Val[Int]
+val nAgents = Val[Double]
 
 val id = Val[Int]
 val replication = Val[Int]
@@ -19,11 +19,11 @@ val maxDegree = Val[Double]
 
 
 // setup-experiment [nw-mode nw-correlation sigma alpha-pref beta tf seed]
-val cmds = List("setup-experiment \"${nwMode}\" ${nwCorrelation} ${sigmaDiscipline} ${alphaPreference} ${entryCostHierarchy} ${betaDC} ${finalTime} (random 10000)","run-experiment")
+val cmds = List("setup-experiment \"${nwMode}\" ${nwCorrelation} ${sigmaDiscipline} ${alphaPreference} ${entryCostHierarchy} ${betaDC} ${finalTime} ${nAgents} (random 10000)","run-experiment")
 
 val model = NetLogo6Task(workDirectory / "HEADLESS_Perspectivism.nlogo",cmds,embedWorkspace = true,reuseWorkspace = true) set (
-  inputs += (nwMode,nwCorrelation,sigmaDiscipline,alphaPreference,entryCostHierarchy,betaDC,finalTime),
-  outputs += (nwMode,nwCorrelation,sigmaDiscipline,alphaPreference,entryCostHierarchy,betaDC,finalTime),
+  inputs += (nwMode,nwCorrelation,sigmaDiscipline,alphaPreference,entryCostHierarchy,betaDC,finalTime,nAgents),
+  outputs += (nwMode,nwCorrelation,sigmaDiscipline,alphaPreference,entryCostHierarchy,betaDC,finalTime,nAgents),
   netLogoOutputs += ("indicators:smoothed-interdisciplinarity", interdisciplinarity),
   netLogoOutputs += ("indicators:smoothed-depth", depth),
   netLogoOutputs += ("indicators:social-degree-correlation", nwEffectiveCorr),
@@ -35,23 +35,22 @@ val model = NetLogo6Task(workDirectory / "HEADLESS_Perspectivism.nlogo",cmds,emb
 val purpose = "GSA_GRID"
 //val purpose = "TEST"
 
-val indics_hook = CSVHook(workDirectory / "saltelli" / ((new java.text.SimpleDateFormat("yyyyMMdd_HHmmss")).format(new java.util.Date()))+"_"+purpose+".csv")
-
 //val env = LocalEnvironment(5)
 val env = EGIEnvironment("vo.complex-systems.eu")
 
 
 SensitivitySaltelli(
   evaluation = (model on env by 50),
-  samples = 20000,
+  sample = 100000,
   inputs = Seq(
     nwCorrelation in (0.0,1.0),
     sigmaDiscipline in (0.01,0.5),
-    alphaPreference in (0.0,5.0),
-    entryCostHierarchy in (0.0,5.0),
-    betaDC in (0.0,5.0)
+    alphaPreference in (0.1,5.0),
+    entryCostHierarchy in (0.1,5.0),
+    betaDC in (0.0,5.0),
+    nAgents in (100.0,1000.0)
   ),
   outputs = Seq(interdisciplinarity, depth, nwEffectiveCorr,maxDegree)
-) hook (resdir)
+) hook (workDirectory / "saltelli" / (((new java.text.SimpleDateFormat("yyyyMMdd_HHmmss")).format(new java.util.Date()))+"_"+purpose))
 
 

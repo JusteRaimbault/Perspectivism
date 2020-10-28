@@ -2,7 +2,7 @@
 ;;
 ; experiments
 
-to setup-experiment [nw-mode nw-correlation sigma alpha-pref entrycosthierarch beta tf seed]
+to setup-experiment [nw-mode nw-correlation sigma alpha-pref entrycosthierarch beta tf nagents seed]
   
   set headless? true
   
@@ -14,8 +14,8 @@ to setup-experiment [nw-mode nw-correlation sigma alpha-pref entrycosthierarch b
   set interdisc-preference-hierarchy alpha-pref
   set entry-cost-hierarchy entrycosthierarch
   set beta-dc beta
-  
   set total-time-steps tf
+  set #-scientists nagents
   
   random-seed seed
   
@@ -36,8 +36,11 @@ end
 
 to test-experiment
   ca
-  setup-experiment "small-world" 0.2 0.1 1 1 5 2000 random 10000
+  ;setup-experiment "small-world" 0.2 0.1 1 1 5 2000 1000 (random 10000)
+  setup-experiment "small-world" 0.0 0.01 0.1 0.1 0 2000 1000 (random 10000)
   run-experiment
   show indicators:smoothed-interdisciplinarity
   show indicators:smoothed-depth
+  show indicators:social-degree-correlation
+  show indicators:max-degree
 end

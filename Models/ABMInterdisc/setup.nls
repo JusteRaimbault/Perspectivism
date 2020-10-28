@@ -22,7 +22,7 @@ end
 
 to setup:setup-globals
   
-  set #-scientists 100
+  ;set #-scientists 100
   
   set average-link-number 4
   
