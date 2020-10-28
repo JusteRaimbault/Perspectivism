@@ -31,20 +31,22 @@ val model = NetLogo6Task(workDirectory / "HEADLESS_Perspectivism.nlogo",cmds,emb
   finalTime := 2000
 )
 
-val purpose = "STOCHASTICITY_GRID"
+//val purpose = "STOCHASTICITY_GRID"
+val purpose = "STOCHASTICITY_CLUSTER"
 //val purpose = "TEST"
 
 val indics_hook = CSVHook(workDirectory / "exploration" / ((new java.text.SimpleDateFormat("yyyyMMdd_HHmmss")).format(new java.util.Date()))+"_"+purpose+".csv")
 
 //val env = LocalEnvironment(5)
-val env = EGIEnvironment("vo.complex-systems.eu")
+//val env = EGIEnvironment("vo.complex-systems.eu")
+val env = SGEEnvironment(memory = 2 gigabytes, localSubmission = true, wallTime = 30 minutes, workDirectory = "/home/uceejra/Scratch/.tmp")
 
 
 // exploration
 val exploration = DirectSampling(
   //evaluation = (model on env hook indics_hook),
-  evaluation = (model on env by 50 hook indics_hook),
-  sampling = ((LHS(50,
+  evaluation = (model on env by 20 hook indics_hook),
+  sampling = ((LHS(80,
     nwCorrelation in Range(0.0,1.0),
     sigmaDiscipline in Range(0.01,0.3),
     alphaPreference in Range(0.0,5.0),
@@ -57,7 +59,7 @@ val exploration = DirectSampling(
     (alphaPreference in (0.5 to 2.0 by 0.5)) x
     (betaDC in (0.0 to 5.0 by 0.5))
   ) withIndex id)*/
-  x (replication in (UniformDistribution[Int]() take 1000))//50))
+  x (replication in (UniformDistribution[Int]() take 500))//50))
 )
 
 exploration
