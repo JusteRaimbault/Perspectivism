@@ -173,7 +173,7 @@ The Sharpe ratio (absolute average relative to standard deviation) estimated for
 
 % include number of agents in GSA -> ok for other experiments if not sensitive to it (should not)
 
-To summarize the influence of model parameters on outputs, we proceed to a Global Sensitivity Analysis as introduced by \cite{}
+To summarize the influence of model parameters on outputs, we proceed to a Global Sensitivity Analysis as introduced by \cite{saltelli2008global}.
 
 
 
@@ -199,10 +199,14 @@ We run a basic grid exploration of the parameter space, both with random and sma
 
 \subsection{Model optimization}
 
+The way collaborations are established and indicators are computed, one can expect the level of interdisciplinarity and the depth of projects to be contradictory. To understand the compromise between the two, we run a multi-objective optimization procedure on the model. We use the NSGA2 algorithm (Non-dominated Sorting Genetic Algorithm II) \cite{deb2002fast} which is an optimization heuristic well-suited for multi-objective problems. The algorithm is integrated into the OpenMOLE software in a way to handle stochasticity and distribute computations with an island scheme \cite{reuillon2013openmole}. We take a population of $\mu = 200$ and run the algorithm for $10,000$ generations with islands of 15 minutes.
+
+We obtain a linear compromise Pareto front as shown in Fig.~\ref{}.
 
 
 \subsection{Model calibration}
 
+One last experiment to bring the model closer to the empirical data studied above consists in a calibration of model parameter. Observables which can be directly compared are collaboration probabilities between scientists. 
 
 
 

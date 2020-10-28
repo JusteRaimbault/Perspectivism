@@ -48,5 +48,25 @@ summary(reldistance("interdisciplinarity","interdisciplinaritySd"))
 
 
 
+####
+# Optimization
+
+res <- as.tbl(read.csv('optimisation/OPTIMISATION_GRID_20201027_150323/population9000.csv'))
+resdir = '../../Results/ABMInterdisc/OPTIMISATION_GRID_20201027_150323/';dir.create(resdir)
+
+params = c("nwCorrelation","sigmaDiscipline","alphaPreference","entryCostHierarchy","betaDC")
+
+for(param in params){
+  g=ggplot(res[res$evolution.samples>=20,],aes_string(x="interdisciplinarity",y="depth",color=param,size="evolution.samples"))
+  g+geom_point(alpha=0.5)+stdtheme
+  ggsave(file=paste0(resdir,'pareto-interdisciplinarity-depth_color',param,'.png'),width=20,height=18,units='cm')
+}
+
+
+
+
+
+
+
 
 
